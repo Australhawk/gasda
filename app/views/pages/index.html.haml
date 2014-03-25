@@ -1,0 +1,13 @@
+#portada.row
+	#portada-login.row
+		.column.small-6.small-offset-6
+			=form_tag
+			.row.pink-container
+				.column.small-8.pink.small-offset-4
+					.row
+						.column.small-4
+							=text_field :user, :username, :placeholder => 'Username'
+						.column.small-4
+							=password_field :user, :password, :placeholder => 'Password'
+						.column.small-4
+							=submit_tag 'LOGIN', class: 'button tiny', data: { disable_with: "Please wait..." }
