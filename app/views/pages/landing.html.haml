@@ -1,0 +1,24 @@
+#fb-root
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=239812866144670";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+#middle
+  = image_tag('back1.jpg', width: '100%')
+.row
+  .row
+    #logo.small-6.small-centered.columns
+      = image_tag('logo1.png')
+      %h6 TAKE THE VICTORY, TAKE THE MONEY
+  .row
+    #row-margin.small-6.small-centered.columns
+      .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "standard", "data-share" => "true", "data-show-faces" => "true", "data-width" => "300"}
+  .row
+    #row-margin.small-6.small-centered.columns
+      %h6 SIGUENOS Y ENTERATE
+      = link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
+      = link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
