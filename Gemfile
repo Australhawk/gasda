@@ -53,6 +53,9 @@ gem 'bcrypt'
 gem 'simple_form'
 
 gem 'rails_admin'
+gem 'state_machine'
+gem 'rails_autolink'
+gem 'figaro'
 
 # Use unicorn as the app server
 # gem 'unicorn'
