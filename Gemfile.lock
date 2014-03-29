@@ -29,7 +29,6 @@ GEM
     atomic (1.1.16)
     bcrypt (3.1.7)
     builder (3.1.4)
-    choice (0.1.6)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -86,11 +85,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.4)
       sprockets-rails (~> 2.0.0)
-    rails-erd (1.1.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      choice (~> 0.1.6)
-      ruby-graphviz (~> 1.0.4)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -119,7 +113,6 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     remotipart (1.2.1)
-    ruby-graphviz (1.0.9)
     safe_yaml (1.0.1)
     sass (3.2.18)
     sass-rails (4.0.2)
@@ -169,7 +162,6 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.0.4)
-  rails-erd
   rails_12factor
   rails_admin
   sass-rails (~> 4.0.2)
