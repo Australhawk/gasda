@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
         flash[:notice]= 'Error '
       end
     end
-    redirect_to ui_path
+    redirect_to main_path
   end
   def team_parameters
     params.require(:team).permit(:game_id, :name, :description, :tag);
