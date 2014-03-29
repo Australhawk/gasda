@@ -1,11 +1,6 @@
-.row
-	.column.small-12
-		-if flash[:alert]
-			.alert-box.warning.round
-				=flash[:alert]
-				=link_to raw('&times;'), '#', class: 'close'
-.row
-	.column.small-12
+#portada-cover
+	= image_tag('portada.jpg', width: '100%')
+	#portada
 		=form_for @user, url: new_session_path(@user) do |f|
 			=field_set_tag 'Login' do
 				=f.label :username
@@ -13,6 +8,26 @@
 				=f.label :password
 				=f.password_field :password
 				=f.submit 'Login'
+
+%hr.styled.row
+#torneos_desafios.row
+	.small-9.small-centered.columns.text-center
+		%h1 TORNEOS Y DESAFÍOS 1VS1
+
+%hr.styled.row
+#como_funciona.row
+	.small-9.small-centered.columns.text-center
+		%h1 CÓMO FUNCIONA
+
+
+
+
+.row
+	.column.small-12
+		-if flash[:alert]
+			.alert-box.warning.round
+				=flash[:alert]
+				=link_to raw('&times;'), '#', class: 'close'
 .row
 	.column.small-12
 		=form_for @user do |f|
@@ -39,5 +54,22 @@
 					=current_user.email
 					=current_user.birthday
 					=f.submit 'Logout'
-					
+
+#footer
+	.row
+		.small-4.columns.text-center
+			%h4.subheader SÍGUENOS
+		.small-4.columns.text-center
+			%h4.subheader PARTNERS
+		.small-4.columns.text-center
+			%h4.subheader SOPORTE
+	.row{:style => "height: 100px"}
+		.small-4.columns
+		.small-4.columns
+		.small-4.columns
+	.row
+		.small-6.columns.text-left
+			= image_tag('over18_credit.png')
+		.small-6.columns.text-right
+			%p{:style => "margin: 1rem auto auto auto"} 2014 GamerPVP. Todos los derechos reservados.
 

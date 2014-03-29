@@ -35,12 +35,12 @@
 // $include-html-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
-$row-width: rem-calc(1300);
+$row-width: rem-calc(1200);
 // $column-gutter: rem-calc(30);
 // $total-columns: 12;
 
 // We use these to control various global styles
-$body-bg: black;
+$body-bg: #e5e5e5;
 
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -121,7 +121,7 @@ $body-bg: black;
 // $header-font-family: $body-font-family;
 // $header-font-weight: normal;
 // $header-font-style: normal;
-$header-font-color: #F7F7F7;
+$header-font-color: #252525;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
@@ -137,9 +137,9 @@ $header-font-color: #F7F7F7;
 
 // These control how subheaders are styled.
 // $subheader-line-height: 1.4;
-// $subheader-font-color: scale-color($header-font-color, $lightness: 35%);
-// $subheader-font-weight: 300;
-// $subheader-top-margin: .2rem;
+$subheader-font-color: #a2bd30;
+$subheader-font-weight: bold;
+$subheader-top-margin: 1.8rem;
 // $subheader-bottom-margin: .5rem;
 
 // A general <small> styling
