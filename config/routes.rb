@@ -1,5 +1,9 @@
 GamerPVP::Application.routes.draw do
   root 'pages#landing'
+  get 'home' => 'pages#index', as: :home
+  resources :users
+  post 'login' => 'sessions#create', as: :new_session
+  post 'logout' => 'sessions#destroy', as: :destroy_session
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

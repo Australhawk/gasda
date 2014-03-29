@@ -1,17 +1,43 @@
-#portada.row
-	#portada-login.row
-		.column.small-6.small-offset-6
-			=form_tag
-			.row.pink-container
-				.column.small-8.pink.small-offset-4
-					.row
-						.column.small-4
-							=text_field :user, :username, :placeholder => 'Username'
-						.column.small-4
-							=password_field :user, :password, :placeholder => 'Password'
-						.column.small-4
-							=submit_tag 'LOGIN', class: 'button tiny', data: { disable_with: "Please wait..." }
+.row
+	.column.small-12
+		-if flash[:alert]
+			.alert-box.warning.round
+				=flash[:alert]
+				=link_to raw('&times;'), '#', class: 'close'
+.row
+	.column.small-12
+		=form_for @user, url: new_session_path(@user) do |f|
+			=field_set_tag 'Login' do
+				=f.label :username
+				=f.text_field :username
+				=f.label :password
+				=f.password_field :password
+				=f.submit 'Login'
+.row
+	.column.small-12
+		=form_for @user do |f|
+			=field_set_tag 'Register' do
+				=f.label :username
+				=f.text_field :username
+				=f.label :email
+				=f.text_field :email
+				=f.label :email_confirmation
+				=f.text_field :email_confirmation
+				=f.label :password
+				=f.password_field :password
+				=f.label :password_confirmation
+				=f.password_field :password_confirmation
+				=f.label :birthday
+				=f.date_field :birthday
+				=f.submit 'Register'
+-if current_user
 	.row
-		.columns.small-6
-			=image_tag 'logopvp.png'
-		.columns.small-6
+		.column.small-12
+			=form_for current_user, url: destroy_session_path, method: 'post' do |f|
+				=field_set_tag 'Datos' do
+					=current_user.username
+					=current_user.email
+					=current_user.birthday
+					=f.submit 'Logout'
+					
+
