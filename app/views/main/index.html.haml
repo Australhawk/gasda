@@ -1,0 +1,53 @@
+-if current_user
+	.row
+		.column.small-12
+			=form_for current_user, url: destroy_session_path, method: 'post' do |f|
+				=field_set_tag 'Datos' do
+					=current_user.username
+					=current_user.email
+					=current_user.birthday
+					=f.submit 'Logout'
+
+.large-12.columns
+	- flash.each do |type,message|
+		%span.flash= message
+	.row
+		.columns.large-6
+			%h1.subheader Account
+			= simple_form_for @account do |f|
+				= f.association :game
+				= f.association :server
+				= f.input :account_number
+				= f.input :username
+				= f.input :extra
+				= f.button :submit
+		.columns.large-6
+			%h1.subheader Accounts list
+			%ul
+				- @user_accounts.each do |account|
+					%li
+						= account.game.name
+						\- #{account.server.name} - #{account.username.capitalize}
+	.row
+		.columns.large-6
+			%h1.subheader Team
+			= simple_form_for @team do |f|
+				= f.association :game
+				= f.input :name
+				= f.input :description
+				= f.input :tag
+				= f.button :submit
+		.columns.large-6
+			%h1.subheader Teams list
+			%ul
+				- @user_teams.each do |team|
+					%li
+						= team.game.name
+						\- #{team.tag} - #{team.name.capitalize}
+						%ul
+							%li
+								%span.subheader Members
+								- team.team_members.order('role_id').each do |member|
+									%li
+										= member.user.username.capitalize
+										\- #{get_team_role member.user, team}

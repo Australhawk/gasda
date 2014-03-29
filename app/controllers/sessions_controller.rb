@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 		user = User.find_by_username(params[:user][:username])
 		if user && user.authenticate(params[:user][:password])
 			session[:user_id] = user.id
-			redirect_to home_path, :alert => 'Logged in!'
+			redirect_to main_path, :alert => 'Logged in!'
 		else
 			redirect_to home_path, :alert => 'Invalid email or password'
 		end

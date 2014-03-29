@@ -11,7 +11,93 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329000048) do
+ActiveRecord::Schema.define(version: 20140329185741) do
+
+  create_table "accounts", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "account_number"
+    t.string   "username"
+    t.text     "extra"
+    t.integer  "user_id"
+    t.integer  "server_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "games", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "icon"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "servers", force: true do |t|
+    t.string   "name"
+    t.string   "tag"
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_members", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.integer  "role_id"
+    t.string   "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "tag"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tournament_matches", force: true do |t|
+    t.integer  "tournament_id"
+    t.integer  "a_team_id"
+    t.integer  "b_team_id"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tournament_teams", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "tournament_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tournaments", force: true do |t|
+    t.string   "name"
+    t.integer  "slots"
+    t.integer  "game_id"
+    t.integer  "ttype_id"
+    t.datetime "start"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_statuses", force: true do |t|
+    t.integer  "user_id"
+    t.text     "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

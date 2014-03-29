@@ -1,9 +1,13 @@
 GamerPVP::Application.routes.draw do
+  mount RailsAdmin::Engine => '/manage', :as => 'rails_admin'
   root 'pages#landing'
   get 'home' => 'pages#index', as: :home
+  get 'main' => 'main#index', as: :main
   resources :users
   post 'login' => 'sessions#create', as: :new_session
   post 'logout' => 'sessions#destroy', as: :destroy_session
+  post 'accounts' => 'accounts#create', as: :accounts
+  post 'teams' => 'teams#create', as: :teams
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

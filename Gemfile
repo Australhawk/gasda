@@ -41,6 +41,10 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
+gem 'simple_form'
+
+gem 'rails_admin'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  slots: 1
+  game_id: 1
+  ttype_id: 1
+  start: 2014-03-29 15:57:20
+
+two:
+  name: MyString
+  slots: 1
+  game_id: 1
+  ttype_id: 1
+  start: 2014-03-29 15:57:20
