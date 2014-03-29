@@ -6,5 +6,7 @@ class MainController < ApplicationController
     @user_accounts = current_user.accounts.all
     @team = Team.new
     @user_teams = current_user.teams.all
+    @status = UserStatus.new
+    @messages = Message.all
 	end
 end

@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+games = Game.create([{ name: 'Dota 2'},{ name: 'League of Legends'},{ name: 'Starcraft 2'}])
+Server.create([{name: 'Latin America North', tag: 'LAN', game_id: 2},
+	{name: 'Latin America South', tag: 'LAS', game_id: 2},
+	{name: 'South America', tag: 'SA', game_id: 1},
+	{name: 'North America', tag: 'NA', game_id: 1},
+	{name: 'North America', tag: 'NA', game_id: 3},
+	{name: 'Latin America', tag: 'LA', game_id: 3}])
+Role.create([{name: 'Chieftain', description: 'The Big Boss'},
+	{name: 'Shaman', description: '2nd at Charge'},
+	{name: 'Grunt', description: 'A worthy member'},
+	{name: 'Pawn', description: 'A simple pawn'}])

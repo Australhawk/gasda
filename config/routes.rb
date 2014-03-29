@@ -8,6 +8,8 @@ GamerPVP::Application.routes.draw do
   post 'logout' => 'sessions#destroy', as: :destroy_session
   post 'accounts' => 'accounts#create', as: :accounts
   post 'teams' => 'teams#create', as: :teams
+  post 'message' => 'messages#create', as: :messages
+  post 'user_statuses' => 'statuses#create', as: :user_statuses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
