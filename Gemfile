@@ -7,7 +7,7 @@ ruby '2.1.1'
 # Use sqlite3 as the database for Active Record
 group :development,:test do
   gem 'sqlite3'
-  gem 'rails-erd'
+  
 end
 
 # Use SCSS for stylesheets
