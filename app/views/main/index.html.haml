@@ -3,9 +3,12 @@
 	.column.small-12
 		=form_for current_user, url: destroy_session_path, method: 'post' do |f|
 			=field_set_tag 'Datos' do
+				=image_tag current_user.avatar
 				=current_user.username
 				=current_user.email
 				=current_user.birthday
+				Super Admin:
+				=current_user.superadmin
 				=f.submit 'Logout'
 				
 				-if current_user.user_statuses.last.present?

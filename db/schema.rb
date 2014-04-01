@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329211323) do
+ActiveRecord::Schema.define(version: 20140401001012) do
 
   create_table "accounts", force: true do |t|
     t.integer  "game_id"
@@ -98,6 +98,14 @@ ActiveRecord::Schema.define(version: 20140329211323) do
     t.datetime "start"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "server_id"
+  end
+
+  create_table "ttypes", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_statuses", force: true do |t|
@@ -115,6 +123,7 @@ ActiveRecord::Schema.define(version: 20140329211323) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "birthday"
+    t.boolean  "superadmin",      default: false
   end
 
 end

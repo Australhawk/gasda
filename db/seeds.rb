@@ -17,3 +17,4 @@ Role.create([{name: 'Chieftain', description: 'The Big Boss'},
 	{name: 'Shaman', description: '2nd at Charge'},
 	{name: 'Grunt', description: 'A worthy member'},
 	{name: 'Pawn', description: 'A simple pawn'}])
+Ttype.create({name: 'Single Elimination'}{name: 'Double Elimination'},{name: 'Swiss'},{name: 'Round Robin'})
