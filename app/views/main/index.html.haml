@@ -2,7 +2,7 @@
 .row
 	.column.small-12
 		=form_for current_user, url: destroy_session_path, method: 'post' do |f|
-			=field_set_tag 'Datos' do
+			=field_set_tag 'Details' do
 				=image_tag current_user.avatar
 				=current_user.username
 				=current_user.email
