@@ -1,24 +1,133 @@
+#fb-root
+:javascript
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=239812866144670";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
 #portada-cover
 	= image_tag('portada.jpg', width: '100%')
-	#portada
-		=form_for @user, url: new_session_path(@user) do |f|
-			=field_set_tag 'Login' do
-				=f.label :username
-				=f.text_field :username
-				=f.label :password
-				=f.password_field :password
-				=f.submit 'Login'
+	#portada-login
+		#login-bar.right
+			=form_for @user, url: new_session_path(@user) do |f|
+				.row{ :style => "padding: 2.5% 0 0 5%;"}
+					.small-4.columns
+						=f.text_field :username, :placeholder => "Usuario"
+					.small-4.columns
+						=f.password_field :password, :placeholder => "Contraseña"
+					.small-4.columns
+						=f.submit 'Entrar', :class => "button login-button"
+
+		#portada-register.row.white
+			.small-7.columns{ :style => "padding-top: 5%;"}
+				= image_tag('logo_white.png')
+				%br/
+				%br/
+				%h3 
+					%strong COMIENZA AHORA TU CARRERA POR LA FAMA
+				%h5 Crea tu equipo
+				%h5 Gana torneos, gana dinero
+				%h5 Profesionalízate
+				= link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
+				= link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
+				%br/
+				%br/
+				.fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
+			.small-5.columns
+				%h2.text-center 
+					%strong UNETE AHORA Y GRATIS
+					#register.row
+						.column.small-12.white
+							=form_for @user do |f|
+								.row
+									.small-4.columns
+										=f.label :username, "Usuario"
+									.small-8.columns
+										=f.text_field :username
+								.row
+									.small-4.columns
+										=f.label :email, "E-mail"
+									.small-8.columns
+										=f.text_field :email
+								.row
+									.small-4.columns
+										=f.label :email_confirmation, "Confirma E-mail"
+									.small-8.columns
+										=f.text_field :email_confirmation
+								.row
+									.small-4.columns
+										=f.label :password, "Contraseña"
+									.small-8.columns
+										=f.password_field :password
+								.row
+									.small-4.columns
+										=f.label :password_confirmation, "Repite Contraseña"
+									.small-8.columns
+										=f.password_field :password_confirmation
+								.row
+									.small-4.columns
+										=f.label :birthday, "Cumpleaños"
+									.small-8.columns
+										=f.date_field :birthday
+								.row
+									%p{ :style => "margin-bottom: 0px;"} Acepto Términos y Condiciones
+								.row
+									=f.submit 'Registrar', :class => "button login-button"
+
 
 %hr.styled.row
 #torneos_desafios.row
 	.small-9.small-centered.columns.text-center
-		%h1 TORNEOS Y DESAFÍOS 1VS1
+		%h1
+			%strong TORNEOS Y DESAFÍOS 1VS1
+	.row
+		.small-6.columns.text-center{ :style => "padding: 5% 0 8%;"}
+			= image_tag('logo_dota.png')
+			= image_tag('logo_lol.png', style: "margin-top: 8%;")
+		.small-6.columns.text-center{ :style => "padding: 8% 0 8%;"}
+			%h3
+				%strong ... y pronto
+			= image_tag('logo_sc.png', width: '35%')
+			= image_tag('logo_cs.png', width: '35%')
+			= image_tag('logo_mk.png', width: '35%')
 
 %hr.styled.row
 #como_funciona.row
 	.small-9.small-centered.columns.text-center
-		%h1 CÓMO FUNCIONA
-
+		%h1
+			%strong CÓMO FUNCIONA
+	.row{ :style => "margin-top: 4%;"}
+		.small-3.columns
+			.row
+				.small-3.columns
+					%h2
+						%strong 1
+				.small-9.columns{ :style => "padding: 12% 4% 0;"}
+					%p Regístrate y enlaza tu cuenta de videojuego
+		.small-3.columns
+			.row
+				.small-3.columns
+					%h2
+						%strong 2
+				.small-9.columns{ :style => "padding: 12% 4% 0;"}
+					%p Busca e inscríbete a torneos o juega un 1vs1
+		.small-3.columns
+			.row
+				.small-3.columns
+					%h2
+						%strong 3
+				.small-9.columns{ :style => "padding: 12% 4% 0;"}
+					%p Juega y luego reporta el resultado
+		.small-3.columns
+			.row
+				.small-3.columns
+					%h2
+						%strong 4
+				.small-9.columns{ :style => "padding: 12% 4% 0;"}
+					%p Cobra, sigue jugando y gana dinero
 
 
 
@@ -28,23 +137,7 @@
 			.alert-box.warning.round
 				=flash[:alert]
 				=link_to raw('&times;'), '#', class: 'close'
-.row
-	.column.small-12
-		=form_for @user do |f|
-			=field_set_tag 'Register' do
-				=f.label :username
-				=f.text_field :username
-				=f.label :email
-				=f.text_field :email
-				=f.label :email_confirmation
-				=f.text_field :email_confirmation
-				=f.label :password
-				=f.password_field :password
-				=f.label :password_confirmation
-				=f.password_field :password_confirmation
-				=f.label :birthday
-				=f.date_field :birthday
-				=f.submit 'Register'
+
 -if current_user
 	.row
 		.column.small-12
@@ -59,11 +152,20 @@
 	.row
 		.small-4.columns.text-center
 			%h4.subheader SÍGUENOS
+			= link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
+			= link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
 		.small-4.columns.text-center
 			%h4.subheader PARTNERS
 		.small-4.columns.text-center
 			%h4.subheader SOPORTE
-	.row{:style => "height: 100px"}
+			%br/
+			%p F.A.Q.
+			%p Contacto
+			%p Feedback
+			%p Juego Responsable
+			%p Privacidad
+			%p Términos y Condiciones
+	.row{:style => "height: 2rem;"}
 		.small-4.columns
 		.small-4.columns
 		.small-4.columns
