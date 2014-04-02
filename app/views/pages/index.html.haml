@@ -9,7 +9,6 @@
 	}(document, 'script', 'facebook-jssdk'));
 
 #portada-cover
-	= image_tag('portada.jpg', width: '100%')
 	#portada-login
 		#login-bar.right
 			=form_for @user, url: new_session_path(@user) do |f|
@@ -22,7 +21,7 @@
 						=f.submit 'Entrar', :class => "button login-button"
 
 		#portada-register.row.white
-			.small-7.columns{ :style => "padding-top: 5%;"}
+			.medium-7.columns{ :style => "padding-top: 5%;"}
 				= image_tag('logo_white.png')
 				%br/
 				%br/
@@ -36,7 +35,7 @@
 				%br/
 				%br/
 				.fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
-			.small-5.columns
+			#unete.medium-5.columns
 				%h2.text-center 
 					%strong UNETE AHORA Y GRATIS
 					#register.row
@@ -80,19 +79,19 @@
 
 %hr.styled.row
 #torneos_desafios.row
-	.small-9.small-centered.columns.text-center
+	.medium-9small-centered.columns.text-center
 		%h1
 			%strong TORNEOS Y DESAFÍOS 1VS1
 	.row
-		.small-6.columns.text-center{ :style => "padding: 5% 0 8%;"}
+		.large-6.columns.text-center{ :style => "padding: 5% 0 8%;"}
 			= image_tag('logo_dota.png')
 			= image_tag('logo_lol.png', style: "margin-top: 8%;")
-		.small-6.columns.text-center{ :style => "padding: 8% 0 8%;"}
+		.large-6.columns.text-center{ :style => "padding: 8% 0 8%;"}
 			%h3
 				%strong ... y pronto
-			= image_tag('logo_sc.png', width: '35%')
-			= image_tag('logo_cs.png', width: '35%')
-			= image_tag('logo_mk.png', width: '35%')
+			= image_tag('logo_sc.png', style: "max-width: 35%")
+			= image_tag('logo_cs.png', style: "max-width: 35%")
+			= image_tag('logo_mk.png', style: "max-width: 35%")
 
 %hr.styled.row
 #como_funciona.row
@@ -100,34 +99,36 @@
 		%h1
 			%strong CÓMO FUNCIONA
 	.row{ :style => "margin-top: 4%;"}
-		.small-3.columns
-			.row
-				.small-3.columns
-					%h2
-						%strong 1
-				.small-9.columns{ :style => "padding: 12% 4% 0;"}
-					%p Regístrate y enlaza tu cuenta de videojuego
-		.small-3.columns
-			.row
-				.small-3.columns
-					%h2
-						%strong 2
-				.small-9.columns{ :style => "padding: 12% 4% 0;"}
-					%p Busca e inscríbete en torneos o desafíos 1v1
-		.small-3.columns
-			.row
-				.small-3.columns
-					%h2
-						%strong 3
-				.small-9.columns{ :style => "padding: 12% 4% 0;"}
-					%p Juega y luego reporta el resultado
-		.small-3.columns
-			.row
-				.small-3.columns
-					%h2
-						%strong 4
-				.small-9.columns{ :style => "padding: 12% 4% 0;"}
-					%p Cobra, sigue jugando y gana dinero
+		.large-6.columns
+			.small-6.columns
+				.row
+					.small-3.columns
+						%h2
+							%strong 1
+					.small-9.columns{ :style => "padding: 12% 4% 0;"}
+						%p Regístrate y enlaza tu cuenta de videojuego
+			.small-6.columns
+				.row
+					.small-3.columns
+						%h2
+							%strong 2
+					.small-9.columns{ :style => "padding: 12% 4% 0;"}
+						%p Busca e inscríbete en torneos o desafíos 1v1
+		.large-6.columns
+			.small-6.columns
+				.row
+					.small-3.columns
+						%h2
+							%strong 3
+					.small-9.columns{ :style => "padding: 12% 4% 0;"}
+						%p Juega y luego reporta el resultado
+			.small-6.columns
+				.row
+					.small-3.columns
+						%h2
+							%strong 4 	
+					.small-9.columns{ :style => "padding: 12% 4% 0;"}
+						%p Cobra, sigue jugando y gana dinero
 
 
 

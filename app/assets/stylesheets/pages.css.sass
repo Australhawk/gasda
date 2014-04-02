@@ -7,14 +7,21 @@ body
 
 // PORTADA
 #portada-cover
-	max-height: 85%
+	height: 85%
 	width: 100%
 	overflow: hidden
+	background-image: url('portada1.jpg')
+	background-size: 100%
+	background-color: #000
+	-webkit-background-size: cover
+	@media screen and (max-width: 40em)
+		height: auto
+		background-color: black
 #portada-login
 	width: 100%
-	position: absolute
 	top: 0
 	height: auto
+	overflow: hidden
 #login-bar
 	width: 40%
 	background-image: url('pink_back.png')
@@ -25,6 +32,12 @@ body
 		height: 1.6rem
 	input:-webkit-autofill
 		-webkit-box-shadow: 0 0 0 1000px #e5e5e5 inset
+	@media screen and (max-width: 40em)
+		width: 100%
+		border-top-left-radius: 0em
+		border-bottom-left-radius: 0em
+	@media only screen and (min-width: 40.063em) and (max-width: 64em)
+		width: 70%
 .login-button
 	margin: 0
 	padding: 0.1rem 1.3rem
@@ -42,6 +55,16 @@ body
 		-webkit-box-shadow: 0 0 0 1000px #e5e5e5 inset
 	label
 		color: #FFF
+	@media screen and (max-width: 40em)
+		border-radius: 0em
+#unete
+	@media screen and (max-width: 40em)
+		margin-top: 5%
+		background-color: #000
+	@media screen and (min-width: 40.063em) and (max-width: 735px)
+		h2
+			font-size: 1.5rem
+		margin-top: 4%
 #torneos_desafios
 	height: 40%
 #como_funciona
