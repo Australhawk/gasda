@@ -56,7 +56,9 @@ gem 'rails_admin'
 gem 'state_machine'
 gem 'rails_autolink'
 gem 'figaro'
-
+gem 'private_pub'
+gem 'faye'
+gem 'thin'
 # Use unicorn as the app server
 # gem 'unicorn'
 

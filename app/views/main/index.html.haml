@@ -1,33 +1,55 @@
--if current_user
-	.row
-		.column.small-12
-			=form_for current_user, url: destroy_session_path, method: 'post' do |f|
-				=field_set_tag 'Datos' do
-					=current_user.username
-					=current_user.email
-					=current_user.birthday
-					=f.submit 'Logout'
 
-.large-12.columns
-	- flash.each do |type,message|
-		%span.flash= message
-	.row
-		.columns.large-6
-			%h1.subheader Account
-			= simple_form_for @account do |f|
-				= f.association :game
-				= f.association :server
-				= f.input :account_number
-				= f.input :username
-				= f.input :extra
-				= f.button :submit
-		.columns.large-6
-			%h1.subheader Accounts list
-			%ul
-				- @user_accounts.each do |account|
-					%li
-						= account.game.name
-						\- #{account.server.name} - #{account.username.capitalize}
+.row
+	.column.small-12
+		=form_for current_user, url: destroy_session_path, method: 'post' do |f|
+			=field_set_tag 'Details' do
+				=image_tag current_user.avatar
+				=current_user.username
+				=current_user.email
+				=current_user.birthday
+				Super Admin:
+				=current_user.superadmin
+				=f.submit 'Logout'
+				
+				-if current_user.user_statuses.last.present?
+					\-
+					=current_user.user_statuses.last.status
+.row
+	.column.small-12
+		=form_for @status,  method: 'post' do |f|
+			=field_set_tag 'Status' do
+				=f.text_area :status
+				=f.submit 'Post'
+				
+.row
+	.cloumn.small-12
+		%h1 Chat
+		%ul#chat
+			= render @messages
+		= form_for Message.new, remote: true do |f|
+			= f.text_field :message
+			= f.submit "Send"
+.row
+	.large-12.columns
+		- flash.each do |type,message|
+			%span.flash= message
+		.row
+			.columns.large-6
+				%h1.subheader Account
+				= simple_form_for @account do |f|
+					= f.association :game
+					= f.association :server
+					= f.input :account_number
+					= f.input :username
+					= f.input :extra
+					= f.button :submit
+			.columns.large-6
+				%h1.subheader Accounts list
+				%ul
+					- @user_accounts.each do |account|
+						%li
+							= account.game.name
+							\- #{account.server.name} - #{account.username.capitalize}
 	.row
 		.columns.large-6
 			%h1.subheader Team
