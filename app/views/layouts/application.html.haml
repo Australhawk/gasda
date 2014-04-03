@@ -1,0 +1,111 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "GamerPVP - Let the Game Begin"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
+  %body
+    #fb-root
+      :javascript
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=239812866144670";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    - if @hide_header
+      #header{ :style => "display: none"}
+    - else
+      #header
+        // Top Bar
+        %nav#top_menu.top-bar{"data-topbar" => ""}
+          %section.top-bar-section
+            %ul.left
+              %li.has-dropdown.not-click
+                %a{href: "#"} Edioma: ES
+                %ul.dropdown
+                  %li.title.back.js-generated
+                    %h5
+                      %a{href: "javascript:void(0)"} Back
+                  %li
+                    %a{href: "#"} Inglés
+                  %li
+                    %a{href: "#"} Portugues
+            / Right Nav Section
+            %ul.right
+              %li
+                %a{href: "#"} SebaVargas
+              %li
+                %a{href: "#"} Logout
+              %li
+                %a{href: "#"} Feedback  
+        // Logo
+        .row
+          .small-6.small-centered.columns.text-center
+            = image_tag('logo_white.png', :style => "-webkit-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); -moz-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); box-shadow: 8px 100px 272px 14px rgba(0,0,0,0.75);")
+            .fb-like{ :style => "margin-top: 3%", "data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "standard", "data-share" => "true", "data-show-faces" => "false", "data-colorscheme" => "dark"}
+        // Medium Top Bar
+        .row.contain-to-grid{ :style => "background-color: transparent; position: relative; bottom: -2.4rem;"}
+          %nav#mid_menu.top-bar{"data-topbar" => ""}
+            %section.top-bar-section
+              %ul.left
+                %li
+                  %a{href: "#"} CHOOSE YOUR DESTINY
+                %li.divider
+                %li
+                  %a{href: "#"} HALL OF FAME
+                %li.divider
+              // Right Nav Section
+              %ul.right
+                %li
+                  %a{href: "#"} COMMAND CENTER
+                %li.divider
+                %li
+                  %a{href: "#"} TICKET
+                %li.divider
+                %li
+                  %a{href: "#"} BANCO 
+        }
+
+
+
+
+
+
+    = yield
+
+    - if @hide_footer
+      #footer{ :style => "display: none"}
+    - else 
+      #footer
+        .row
+          .small-4.columns.text-center
+            %h4.subheader SÍGUENOS
+            = link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
+            = link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
+          .small-4.columns.text-center
+            %h4.subheader PARTNERS
+          .small-4.columns.text-center
+            %h4.subheader SOPORTE
+            %br/
+            %p F.A.Q.
+            %p Contacto
+            %p Feedback
+            %p Juego Responsable
+            %p Privacidad
+            %p Términos y Condiciones
+        .row{:style => "height: 2rem;"}
+          .small-4.columns
+          .small-4.columns
+          .small-4.columns
+        .row
+          .small-6.columns.text-left
+            = image_tag('over18_credit.png')
+          .small-6.columns.text-right
+            %p{:style => "margin: 1rem auto auto auto"} 2014 GamerPVP. Todos los derechos reservados.
+
+    = javascript_include_tag "application"

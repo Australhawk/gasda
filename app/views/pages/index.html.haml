@@ -9,6 +9,22 @@
 	}(document, 'script', 'facebook-jssdk'));
 
 #portada-cover
+	.row
+		.column.small-12
+			-if flash[:alert]
+				.alert-box.warning.round
+					=flash[:alert]
+					=link_to raw('&times;'), '#', class: 'close'
+
+	-if current_user
+		.row
+			.column.small-12
+				=form_for current_user, url: destroy_session_path, method: 'post' do |f|
+					=field_set_tag 'Datos' do
+						=current_user.username
+						=current_user.email
+						=current_user.birthday
+						=f.submit 'Logout'
 	#portada-login
 		#login-bar.right
 			=form_for @user, url: new_session_path(@user) do |f|
@@ -129,50 +145,3 @@
 							%strong 4 	
 					.small-9.columns{ :style => "padding: 12% 4% 0;"}
 						%p Cobra, sigue jugando y gana dinero
-
-
-
-.row
-	.column.small-12
-		-if flash[:alert]
-			.alert-box.warning.round
-				=flash[:alert]
-				=link_to raw('&times;'), '#', class: 'close'
-
--if current_user
-	.row
-		.column.small-12
-			=form_for current_user, url: destroy_session_path, method: 'post' do |f|
-				=field_set_tag 'Datos' do
-					=current_user.username
-					=current_user.email
-					=current_user.birthday
-					=f.submit 'Logout'
-
-#footer
-	.row
-		.small-4.columns.text-center
-			%h4.subheader SÍGUENOS
-			= link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
-			= link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
-		.small-4.columns.text-center
-			%h4.subheader PARTNERS
-		.small-4.columns.text-center
-			%h4.subheader SOPORTE
-			%br/
-			%p F.A.Q.
-			%p Contacto
-			%p Feedback
-			%p Juego Responsable
-			%p Privacidad
-			%p Términos y Condiciones
-	.row{:style => "height: 2rem;"}
-		.small-4.columns
-		.small-4.columns
-		.small-4.columns
-	.row
-		.small-6.columns.text-left
-			= image_tag('over18_credit.png')
-		.small-6.columns.text-right
-			%p{:style => "margin: 1rem auto auto auto"} 2014 GamerPVP. Todos los derechos reservados.
-
