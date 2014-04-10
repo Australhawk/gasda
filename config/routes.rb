@@ -8,7 +8,7 @@ GamerPVP::Application.routes.draw do
   
   get 'ticket' => 'main#ticket', as: :ticket
   get 'bank' => 'main#bank', as: :bank
-  get 'profile' => 'user#profile', as: :profile
+  get 'profile' => 'users#profile', as: :profile
   get 'feedback' => 'main#feedback', as: :feedback
   resources :users
   post 'login' => 'sessions#create', as: :new_session
