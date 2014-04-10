@@ -26,7 +26,7 @@
           %section.top-bar-section
             %ul.left
               %li.has-dropdown.not-click
-                %a{href: "#"} Edioma: ES
+                %a{href: "#"} Idioma: ES
                 %ul.dropdown
                   %li.title.back.js-generated
                     %h5
@@ -38,11 +38,11 @@
             / Right Nav Section
             %ul.right
               %li
-                %a{href: "#"} SebaVargas
+                =link_to current_user.username, profile_path
               %li
-                %a{href: "#"} Logout
+                =link_to 'Logout', destroy_session_path
               %li
-                %a{href: "#"} Feedback  
+                =link_to 'Feedback', feedback_path 
         // Logo
         .row
           .small-6.small-centered.columns.text-center
@@ -54,21 +54,21 @@
             %section.top-bar-section
               %ul.left
                 %li
-                  %a{href: "#"} CHOOSE YOUR DESTINY
+                  =link_to 'CHOOSE YOUR DESTINY', choose_path, class: "#{cp(choose_path)}"
                 %li.divider
                 %li
-                  %a{href: "#"} HALL OF FAME
+                  =link_to 'HALL OF FAME', halloffame_path, class: "#{cp(halloffame_path)}"
                 %li.divider
               // Right Nav Section
               %ul.right
                 %li
-                  %a{href: "#"} COMMAND CENTER
+                  =link_to 'COMMAND CENTER', main_path, class: "#{cp(main_path)}"
                 %li.divider
                 %li
-                  %a{href: "#"} TICKET
+                  =link_to 'TICKET', ticket_path, class: "#{cp(ticket_path)}"
                 %li.divider
                 %li
-                  %a{href: "#"} BANCO 
+                  =link_to 'BANK', bank_path, class: "#{cp(bank_path)}" 
         }
 
 

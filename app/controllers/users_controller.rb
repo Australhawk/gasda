@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	def create
 		user = User.create(user_parameters)
 		if user.save
-			redirect_to home_path, :alert => 'Registered'
+			redirect_to main_path, :alert => 'Registered'
 		else
 			@user = user
 			flash.now.alert = "Fill all pls"
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 	end
 	def user_parameters
     	params.require(:user).permit(:email, :username, :birthday, :password, :email_confirmation, :password_confirmation);
-  	end
+	end
+	def profile
+	end	
 
 end

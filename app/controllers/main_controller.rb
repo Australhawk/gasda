@@ -9,4 +9,14 @@ class MainController < ApplicationController
     @status = UserStatus.new
     @messages = Message.all
 	end
+	def choose
+	end
+	def halloffame
+	end
+	def ticket
+	end
+	def bank
+	end
+	def feedback
+	end
 end

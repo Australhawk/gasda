@@ -13,4 +13,7 @@ module ApplicationHelper
   def get_team_role(user,team)
     user.team_members.where(team_id: team.id).take.role.name
   end
+  def cp(path)
+  "current" if current_page?(path)
+  end
 end

@@ -3,9 +3,16 @@ GamerPVP::Application.routes.draw do
   root 'pages#landing'
   get 'home' => 'pages#index', as: :home
   get 'main' => 'main#index', as: :main
+  get 'choose' => 'main#choose', as: :choose
+  get 'halloffame' => 'main#halloffame', as: :halloffame
+  
+  get 'ticket' => 'main#ticket', as: :ticket
+  get 'bank' => 'main#bank', as: :bank
+  get 'profile' => 'user#profile', as: :profile
+  get 'feedback' => 'main#feedback', as: :feedback
   resources :users
   post 'login' => 'sessions#create', as: :new_session
-  post 'logout' => 'sessions#destroy', as: :destroy_session
+  get 'logout' => 'sessions#destroy', as: :destroy_session
   post 'accounts' => 'accounts#create', as: :accounts
   post 'teams' => 'teams#create', as: :teams
   post 'message' => 'messages#create', as: :messages
