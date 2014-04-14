@@ -19,6 +19,8 @@ gem 'haml'
 # Use Foundation for styles
 gem 'foundation-rails'
 
+gem 'foundation-icons-sass-rails', '~> 3.0.0'
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'

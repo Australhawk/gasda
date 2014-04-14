@@ -38,7 +38,7 @@
             / Right Nav Section
             %ul.right
               %li
-                =link_to current_user.username, profile_path
+                =link_to current_user.username, profile_path, :style => "font-weight: bold"
               %li
                 =link_to 'Logout', destroy_session_path
               %li
@@ -46,7 +46,7 @@
         // Logo
         .row
           .small-6.small-centered.columns.text-center
-            = image_tag('logo_white.png', :style => "-webkit-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); -moz-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); box-shadow: 8px 100px 272px 14px rgba(0,0,0,0.75);")
+            = image_tag('logo_white.png', :style => "-webkit-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); -moz-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); box-shadow: 8px 10px 272px 14px rgba(0,0,0,0.75);")
             .fb-like{ :style => "margin-top: 3%", "data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "standard", "data-share" => "true", "data-show-faces" => "false", "data-colorscheme" => "dark"}
         // Medium Top Bar
         .row.contain-to-grid{ :style => "background-color: transparent; position: relative; bottom: -2.4rem;"}
@@ -68,7 +68,7 @@
                   =link_to 'TICKET', ticket_path, class: "#{cp(ticket_path)}"
                 %li.divider
                 %li
-                  =link_to 'BANK', bank_path, class: "#{cp(bank_path)}" 
+                  =link_to 'BANCO', bank_path, class: "#{cp(bank_path)}" 
         
 
 
