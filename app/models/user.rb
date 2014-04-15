@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :team_members
   has_many :teams, :through => :team_members
 	has_many :messages
+	has_many :tournaments, :through => :teams
+	has_many :games, :through => :accounts
 
 	def avatar(size=80)
     gravatar_id = Digest::MD5::hexdigest(self.email.downcase)

@@ -8,6 +8,9 @@ class MainController < ApplicationController
     @user_teams = current_user.teams.all
     @status = UserStatus.new
     @messages = Message.all
+    @eventos = Tournament.where(['start > ?', DateTime.now])
+    @user_torneos = current_user.tournaments.all
+    @user_games = current_user.games.all
 	end
 	def choose
 	end

@@ -23,7 +23,7 @@
 		.small-2.columns.text-center
 			=form_for current_user, url: destroy_session_path, method: 'post' do |f|
 				.panel{:style => "width: 200%"}
-					=image_tag current_user.avatar
+					=image_tag current_user.avatar(250)
 			%i.fi-pencil.size-36
 				%p Editar
 			%i.fi-torso.size-36
@@ -52,36 +52,49 @@
 								%li.title.back.js-generated
 									%h5
 										%a{href: "javascript:void(0)"} Back
-								%li
-									%a{href: "#"} Juego 1
-								%li
-									%a{href: "#"} juego 2
-						%li
+								-unless @user_games.nil?
+									-@user_games.uniq.each do |game|
+										%li
+											=link_to game.name
+
+								
+						%li.has-dropdown.not-click
 							%a{href: "#"} MIS EQUIPOS
+							%ul.dropdown
+								%li.title.back.js-generated
+									%h5
+										%a{href: "javascript:void(0)"} Back
+								-unless @user_teams.nil?
+									-@user_teams.each do |team|
+										%li
+											=link_to team.game.name+" - "+team.name
 						%li
 							%a{href: "#"} REPORTES
 		.small-9.columns
 			.row
 				.column.small-12.text-right
 					%h1 CALENDARIO
-					asdasd 
-					asda
-					sd
-					asd
-					asd
-					%p asdasdasd
-					%p asdasdasd
-					%p asdasdasd
-					%p asdasdasd
-					%p asdasdasd
+					-unless @eventos.nil?
+						-@eventos.each do |evento|
+							%p
+								=evento.name
+								=evento.game.name
+								=evento.start.strftime("%d")
+								=evento.start.strftime("%h")
+								=evento.start.strftime("%H:%M")
+								=evento.start.strftime("%Z")
 
 				.column.small-12
 					.row.text-right
 						.small-6.columns
 							%h1 MIS TORNEOS
-							%p asdasdasd
-							%p asdasdasd
-							%p asdasdasd
+							-unless @user_torneos.nil?
+								-@user_torneos.each do |torneo|
+									%p
+										=image_tag torneo.game.icon #agregar la imagen en manage
+										=torneo.name
+										=#premio y rondas 
+										
 						.small-6.columns
 							%h1 MIS 1V1
 							%p asdasdasd
