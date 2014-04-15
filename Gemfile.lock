@@ -72,6 +72,7 @@ GEM
     foundation-rails (5.2.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    gli (2.9.0)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -89,6 +90,13 @@ GEM
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    localeapp (0.7.2)
+      gli
+      i18n
+      json
+      rack
+      rest-client
+      ya2yaml
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -147,6 +155,8 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     remotipart (1.2.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     safe_yaml (1.0.1)
     sass (3.2.18)
     sass-rails (4.0.2)
@@ -189,6 +199,7 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     websocket-driver (0.3.2)
+    ya2yaml (0.31)
 
 PLATFORMS
   ruby
@@ -203,6 +214,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.2)
   jquery-rails
+  localeapp
   pg
   private_pub
   rails (= 4.0.4)
