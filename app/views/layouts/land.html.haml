@@ -9,7 +9,9 @@
     = csrf_meta_tags
   %body
     #fb-root
-      :javascript
+    = yield
+    = javascript_include_tag "application"
+    :javascript
         (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
@@ -17,5 +19,3 @@
         js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=239812866144670";
         fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    = yield
-    = javascript_include_tag "application"
