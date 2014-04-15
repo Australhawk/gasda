@@ -10,4 +10,7 @@ module ApplicationHelper
 			"current"
 		end 
 	end
+	def lead(page_lead)
+	  content_for(:lead) { page_lead }
+	end
 end

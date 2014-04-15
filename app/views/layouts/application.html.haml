@@ -78,7 +78,7 @@
         .small-3.columns
           %p
         .small-6.columns.text-center
-          %h1.bolder COMMAND CENTER
+          %h1.bolder= content_for?(:lead) ? yield(:lead) : "SIN TITULO"
         .small-3.columns.text-right{:style => "padding-top: 1%"}
           %i.fi-mail.size-48
           %i.fi-wrench.size-48
