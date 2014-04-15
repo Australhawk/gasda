@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401001012) do
+ActiveRecord::Schema.define(version: 20140415091212) do
 
   create_table "accounts", force: true do |t|
     t.integer  "game_id"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20140401001012) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "server_id"
+    t.string   "price"
   end
 
   create_table "ttypes", force: true do |t|

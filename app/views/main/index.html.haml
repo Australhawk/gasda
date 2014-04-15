@@ -79,10 +79,10 @@
 							%p
 								=evento.name
 								=evento.game.name
-								=evento.start.strftime("%d")
-								=evento.start.strftime("%h")
-								=evento.start.strftime("%H:%M")
-								=evento.start.strftime("%Z")
+								=evento.start.strftime("%d") #Dia
+								=evento.start.strftime("%h") #Mes
+								=evento.start.strftime("%H:%M") #Hora
+								=evento.start.strftime("%Z") #Zona Horaria por defecto UTC
 
 				.column.small-12
 					.row.text-right
@@ -93,19 +93,25 @@
 									%p
 										=image_tag torneo.game.icon #agregar la imagen en manage
 										=torneo.name
-										=#premio y rondas 
+										=torneo.price
 										
 						.small-6.columns
 							%h1 MIS 1V1
-							%p asdasdasd
-							%p asdasdasd
-							%p asdasdasd
+							%p Blabla
+							=#Considerado solo un tipo de torneo
 
 				.column.small-12.text-right
 					%h1 SUGERENCIAS
-					%p asdasdasd
-					%p asdasdasd
-					%p asdasdasd
+					-unless @eventos.nil?
+						-@eventos.each do |evento|
+							%p
+								=evento.name
+								=evento.game.name
+								=evento.start.strftime("%d")
+								=evento.start.strftime("%h")
+								=evento.start.strftime("%H:%M")
+								=evento.start.strftime("%Z")
+					
 
 				.column.small-12.text-right
 					%h1 BUSCA UN OPONENTE: CHAT
