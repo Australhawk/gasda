@@ -61,6 +61,7 @@ gem 'figaro'
 gem 'private_pub'
 gem 'faye'
 gem 'thin'
+gem 'localeapp'
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -15,26 +15,16 @@
 				.alert-box.warning.round{:data => {'alert' => ''}}
 					=flash[:alert]
 					=link_to raw('&times;'), '#', class: 'close'
-
-	-if current_user
-		.row
-			.column.small-12
-				=form_for current_user, url: destroy_session_path, method: 'post' do |f|
-					=field_set_tag 'Datos' do
-						=current_user.username
-						=current_user.email
-						=current_user.birthday
-						=f.submit 'Logout'
 	#portada-login
 		#login-bar.right
 			=form_for @user, url: new_session_path(@user) do |f|
 				.row{ :style => "padding: 2.5% 0 0 5%;"}
 					.small-4.columns
-						=f.text_field :username, :placeholder => "user"
+						=f.text_field :username, :placeholder => t(:user_lower)
 					.small-4.columns
-						=f.password_field :password, :placeholder => "password"
+						=f.password_field :password, :placeholder => t(:password_lower)
 					.small-4.columns
-						=f.submit 'Entrar', :class => "button login-button"
+						=f.submit t('Entrar'), :class => "button login-button"
 
 		#portada-register.row.white
 			.medium-7.columns{ :style => "padding-top: 5%;"}
