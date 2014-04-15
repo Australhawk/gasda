@@ -9,110 +9,140 @@
     = csrf_meta_tags
   %body
     #fb-root
-      :javascript
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=239812866144670";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    - if @hide_header
-      #header{ :style => "display: none"}
-    - else
-      #header
-        // Top Bar
-        %nav#top_menu.top-bar{"data-topbar" => ""}
+    #header
+      // Top Bar
+      %nav#top_menu.top-bar{"data-topbar" => ""}
+        %section.top-bar-section
+          %ul.left
+            %li.has-dropdown.not-click
+              %a{href: "#"} Idioma: ES
+              %ul.dropdown
+                %li.title.back.js-generated
+                  %h5
+                    %a{href: "javascript:void(0)"} Back
+                %li
+                  %a{href: "#"} Inglés
+                %li
+                  %a{href: "#"} Portugues
+          / Right Nav Section
+          %ul.right
+            %li
+              =link_to current_user.username, profile_path, :style => "font-weight: bold"
+            %li
+              =link_to 'Logout', destroy_session_path
+            %li
+              =link_to 'Feedback', feedback_path 
+      // Logo
+      .row
+        .small-6.small-centered.columns.text-center
+          =link_to image_tag('logo_white.png', :style => "-webkit-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); -moz-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); box-shadow: 8px 10px 272px 14px rgba(0,0,0,0.75);"), main_path, class: "#{cp(main_path)}"
+          .fb-like{ :style => "margin-top: 3%", "data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "standard", "data-share" => "true", "data-show-faces" => "false", "data-colorscheme" => "dark"}
+      // Medium Top Bar
+      #medium-topbar.row.contain-to-grid
+        %nav#mid_menu.top-bar{"data-topbar" => ""}
           %section.top-bar-section
             %ul.left
-              %li.has-dropdown.not-click
-                %a{href: "#"} Idioma: ES
-                %ul.dropdown
-                  %li.title.back.js-generated
-                    %h5
-                      %a{href: "javascript:void(0)"} Back
-                  %li
-                    %a{href: "#"} Inglés
-                  %li
-                    %a{href: "#"} Portugues
-            / Right Nav Section
+              %li
+                =link_to 'CHOOSE YOUR DESTINY', choose_path, class: "#{cp(choose_path)}"
+              %li.divider
+              %li
+                =link_to 'HALL OF FAME', halloffame_path, class: "#{cp(halloffame_path)}"
+              %li.divider
+            // Right Nav Section
             %ul.right
               %li
-                =link_to current_user.username, profile_path, :style => "font-weight: bold"
+                =link_to 'COMMAND CENTER', main_path, class: "#{cp(main_path)}"
+              %li.divider
               %li
-                =link_to 'Logout', destroy_session_path
+                =link_to 'TICKET', ticket_path, class: "#{cp(ticket_path)}"
+              %li.divider
               %li
-                =link_to 'Feedback', feedback_path 
-        // Logo
-        .row
-          .small-6.small-centered.columns.text-center
-            =link_to image_tag('logo_white.png', :style => "-webkit-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); -moz-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); box-shadow: 8px 10px 272px 14px rgba(0,0,0,0.75);"), main_path, class: "#{cp(main_path)}"
-            .fb-like{ :style => "margin-top: 3%", "data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "standard", "data-share" => "true", "data-show-faces" => "false", "data-colorscheme" => "dark"}
-        // Medium Top Bar
-        #medium-topbar.row.contain-to-grid
-          %nav#mid_menu.top-bar{"data-topbar" => ""}
+                =link_to 'BANCO', bank_path, class: "#{cp(bank_path)}"
+        #header-saldo.column.small-12.text-center
+          .small-4.small-centered.columns.text-center
+            .small-6.columns.text-right
+              %i.fi-dollar-bill.size-100
+            .small-6.columns.text-left{:style => "padding-top: 7%"}
+              %h1 XX
+              %p
+                %small Saldo Disponible
+      .row
+        .large-12.columns
+          - flash.each do |type,message|
+            .alert-box.success.round{:style => "margin-top: 2%", :data => { 'alert' => ''}}
+              =flash[message]
+              =link_to raw('&times;'), '#', class: 'close'
+              %span.flash= message
+    .row
+      .row
+        .small-3.columns
+          %p
+        .small-6.columns.text-center
+          %h1.bolder COMMAND CENTER
+        .small-3.columns.text-right{:style => "padding-top: 1%"}
+          %i.fi-mail.size-48
+          %i.fi-wrench.size-48
+      .row{style: 'padding-top: 0%'}  
+        .small-3.columns
+          =image_tag current_user.avatar(270)
+          #profile_options.text-center 
+            %i.fi-pencil.size-16
+              Editar Perfil
+            %i.fi-torso.size-16
+              Ver Perfil
+          %nav#left-menu.top-bar{"data-topbar" => ""}
             %section.top-bar-section
               %ul.left
                 %li
-                  =link_to 'CHOOSE YOUR DESTINY', choose_path, class: "#{cp(choose_path)}"
-                %li.divider
+                  %a{href: "#"} NOTIFICACIONES
                 %li
-                  =link_to 'HALL OF FAME', halloffame_path, class: "#{cp(halloffame_path)}"
-                %li.divider
-              // Right Nav Section
-              %ul.right
+                  %a{"data-dropdown" => "drop-juegos", "data-options" => "align:right", href: "#"} MIS JUEGOS
+                  %ul#drop-juegos.medium.f-dropdown{"data-dropdown-content" => ""}
+                    %li
+                      =link_to '+ Agregar', newgame_path
+                    -unless @user_games.nil?
+                      -@user_games.uniq.each do |game|
+                        %li
+                          =link_to game.name
+          
                 %li
-                  =link_to 'COMMAND CENTER', main_path, class: "#{cp(main_path)}"
-                %li.divider
+                  %a{"data-dropdown" => "drop-equipos", "data-options" => "align:right", href: "#"} MIS EQUIPOS
+                  %ul#drop-equipos.medium.f-dropdown{"data-dropdown-content" => ""}
+                    %li
+                      =link_to '+ Crear Equipo', newteam_path
+                    -unless @user_teams.nil?
+                      -@user_teams.each do |team|
+                        %li
+                          =link_to team.game.name+" - "+team.name
                 %li
-                  =link_to 'TICKET', ticket_path, class: "#{cp(ticket_path)}"
-                %li.divider
-                %li
-                  =link_to 'BANCO', bank_path, class: "#{cp(bank_path)}"
-          #header-saldo.column.small-12.text-center
-            .small-4.small-centered.columns.text-center
-              .small-6.columns.text-right
-                %i.fi-dollar-bill.size-100
-              .small-6.columns.text-left{:style => "padding-top: 7%"}
-                %h1 XX
-                %p
-                  %small Saldo Disponible
-
-
-
-
-
-
-    = yield
-
-    - if @hide_footer
-      #footer{ :style => "display: none"}
-    - else 
-      #footer
-        .row
-          .small-4.columns.text-center
-            %h4.subheader SÍGUENOS
-            = link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
-            = link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
-          .small-4.columns.text-center
-            %h4.subheader PARTNERS
-          .small-4.columns.text-center
-            %h4.subheader SOPORTE
-            %br/
-            %p F.A.Q.
-            %p Contacto
-            %p Feedback
-            %p Juego Responsable
-            %p Privacidad
-            %p Términos y Condiciones
-        .row{:style => "height: 2rem;"}
-          .small-4.columns
-          .small-4.columns
-          .small-4.columns
-        .row
-          .small-6.columns.text-left
-            = image_tag('over18_credit.png')
-          .small-6.columns.text-right
-            %p{:style => "margin: 1rem auto auto auto"} 2014 GamerPVP. Todos los derechos reservados.
+                  %a{href: "#"} REPORTES
+        .columns.small-9
+          = yield
+    #footer
+      .row
+        .small-4.columns.text-center
+          %h4.subheader SÍGUENOS
+          = link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
+          = link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
+        .small-4.columns.text-center
+          %h4.subheader PARTNERS
+        .small-4.columns.text-center
+          %h4.subheader SOPORTE
+          %br/
+          %p F.A.Q.
+          %p Contacto
+          %p Feedback
+          %p Juego Responsable
+          %p Privacidad
+          %p Términos y Condiciones
+      .row{:style => "height: 2rem;"}
+        .small-4.columns
+        .small-4.columns
+        .small-4.columns
+      .row
+        .small-6.columns.text-left
+          = image_tag('over18_credit.png')
+        .small-6.columns.text-right
+          %p{:style => "margin: 1rem auto auto auto"} 2014 GamerPVP. Todos los derechos reservados.
 
     = javascript_include_tag "application"

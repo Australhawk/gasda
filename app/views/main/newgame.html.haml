@@ -1,82 +1,18 @@
-.row
+.row#main
 	.row
-		.small-3.columns
-			%p
-		.small-6.columns.text-center
-			%h1.bolder COMMAND CENTER
-		.small-3.columns.text-right{:style => "padding-top: 1%"}
-			%i.fi-mail.size-48
-			%i.fi-wrench.size-48
-	%hr.style-one.row
-	.small-4.small-centered.columns.text-center
-		%h1 Gestión de Juegos
-
-	#profile-header.row
-		.small-3.columns.text-center
-			=form_for current_user, url: destroy_session_path, method: 'post' do |f|
-				=image_tag current_user.avatar(250)
-			%i.fi-pencil.size-36
-				%p Editar
-			%i.fi-torso.size-36
-				%p Perfil
-		.small-9.columns
-			=form_for current_user, url: destroy_session_path, method: 'post' do |f|
-				%h3.bolder
-					=current_user.username
-				-if current_user.user_statuses.last.present?
-					\"
-					=current_user.user_statuses.last.status
-					\"
-			-# =form_for @status,  method: 'post' do |f|
-			-# 	=f.text_area :status, :placeholder => "What's going on Biiiaaaattchhhh??!!"
-			-# 	=f.submit 'Actualizar'
-	.row
-		.small-3.columns
-			%nav#left-menu.top-bar{"data-topbar" => ""}
-				%section.top-bar-section
-					%ul.left
-						%li
-							%a{href: "#"} NOTIFICACIONES
-						%li
-							%a{"data-dropdown" => "drop-sidenav", "data-options" => "align:right", href: "#"} MIS JUEGOS
-							%ul#drop-sidenav.medium.f-dropdown{"data-dropdown-content" => ""}
-								%li
-									=link_to '+ Agregar', newgame_path
-								-unless @user_games.nil?
-									-@user_games.uniq.each do |game|
-										%li
-											=link_to game.name
-
-								
-						%li.has-dropdown.not-click
-							%a{href: "#"} MIS EQUIPOS
-							%ul.dropdown
-								%li.title.back.js-generated
-									%h5
-										%a{href: "javascript:void(0)"} Back
-								-unless @user_teams.nil?
-									-@user_teams.each do |team|
-										%li
-											=link_to team.game.name+" - "+team.name
-						%li
-							%a{href: "#"} REPORTES
-
-		.small-9.columns
-			.row#main
-				-# .row
-				-# 	.columns.large-6
-				-# 		%h1.subheader Account
-				-# 		= simple_form_for @account do |f|
-				-# 			= f.association :game
-				-# 			= f.association :server
-				-# 			= f.input :account_number
-				-# 			= f.input :username
-				-# 			= f.input :extra
-				-# 			= f.button :submit
-				-# 	.columns.large-6
-				-# 		%h1.subheader Accounts list
-				-# 		%ul
-				-# 			- @user_accounts.each do |account|
-				-# 				%li
-				-# 					= account.game.name
-				-# 					\- #{account.server.name} - #{account.username.capitalize}
+		.columns.large-6
+			%h1.subheader Account
+			= simple_form_for @account do |f|
+				= f.association :game
+				= f.association :server
+				= f.input :account_number
+				= f.input :username
+				= f.input :extra
+				= f.button :submit
+		.columns.large-6
+			%h1.subheader Accounts list
+			%ul
+				- @user_accounts.each do |account|
+					%li
+						= account.game.name
+						\- #{account.server.name} - #{account.username.capitalize}

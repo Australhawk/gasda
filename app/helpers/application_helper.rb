@@ -4,6 +4,10 @@ module ApplicationHelper
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end
   def cp(path)
-  "current" if current_page?(path)
-  end
+	  if current_page?(path)
+	  	"current"
+		elsif path.include?(params[:controller])
+			"current"
+		end 
+	end
 end

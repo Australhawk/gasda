@@ -12,7 +12,7 @@
 	.row
 		.column.small-12
 			-if flash[:alert]
-				.alert-box.warning.round
+				.alert-box.warning.round{:data => {'alert' => ''}}
 					=flash[:alert]
 					=link_to raw('&times;'), '#', class: 'close'
 
@@ -30,9 +30,9 @@
 			=form_for @user, url: new_session_path(@user) do |f|
 				.row{ :style => "padding: 2.5% 0 0 5%;"}
 					.small-4.columns
-						=f.text_field :username, :placeholder => "Usuario"
+						=f.text_field :username, :placeholder => "user"
 					.small-4.columns
-						=f.password_field :password, :placeholder => "Contraseña"
+						=f.password_field :password, :placeholder => "password"
 					.small-4.columns
 						=f.submit 'Entrar', :class => "button login-button"
 
