@@ -5,6 +5,8 @@ GamerPVP::Application.routes.draw do
   get 'main' => 'main#index', as: :main
   get 'choose' => 'main#choose', as: :choose
   get 'halloffame' => 'main#halloffame', as: :halloffame
+  get 'newgame' => 'main#newgame', as: :newgame
+  get 'newteam' => 'main#newteam', as: :newteam
   
   get 'ticket' => 'main#ticket', as: :ticket
   get 'bank' => 'main#bank', as: :bank

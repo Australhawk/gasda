@@ -22,4 +22,17 @@ class MainController < ApplicationController
 	end
 	def feedback
 	end
+	def newgame
+	end
+	def newteam
+		@account = Account.new
+		@user_accounts = current_user.accounts.all
+		@team = Team.new
+		@user_teams = current_user.teams.all
+		@status = UserStatus.new
+		@messages = Message.all
+		@eventos = Tournament.where(['start > ?', DateTime.now])
+		@user_torneos = current_user.tournaments.all
+		@user_games = current_user.games.all
+	end
 end

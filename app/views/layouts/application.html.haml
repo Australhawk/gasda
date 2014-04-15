@@ -46,10 +46,10 @@
         // Logo
         .row
           .small-6.small-centered.columns.text-center
-            = image_tag('logo_white.png', :style => "-webkit-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); -moz-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); box-shadow: 8px 10px 272px 14px rgba(0,0,0,0.75);")
+            =link_to image_tag('logo_white.png', :style => "-webkit-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); -moz-box-shadow: 8px 200px 272px 14px rgba(0,0,0,0.75); box-shadow: 8px 10px 272px 14px rgba(0,0,0,0.75);"), main_path, class: "#{cp(main_path)}"
             .fb-like{ :style => "margin-top: 3%", "data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "standard", "data-share" => "true", "data-show-faces" => "false", "data-colorscheme" => "dark"}
         // Medium Top Bar
-        .row.contain-to-grid{ :style => "background-color: transparent; position: relative; bottom: -2.4rem;"}
+        #medium-topbar.row.contain-to-grid
           %nav#mid_menu.top-bar{"data-topbar" => ""}
             %section.top-bar-section
               %ul.left
@@ -68,8 +68,15 @@
                   =link_to 'TICKET', ticket_path, class: "#{cp(ticket_path)}"
                 %li.divider
                 %li
-                  =link_to 'BANCO', bank_path, class: "#{cp(bank_path)}" 
-        
+                  =link_to 'BANCO', bank_path, class: "#{cp(bank_path)}"
+          #header-saldo.column.small-12.text-center
+            .small-4.small-centered.columns.text-center
+              .small-6.columns.text-right
+                %i.fi-dollar-bill.size-100
+              .small-6.columns.text-left{:style => "padding-top: 7%"}
+                %h1 XX
+                %p
+                  %small Saldo Disponible
 
 
 

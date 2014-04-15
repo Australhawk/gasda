@@ -13,6 +13,8 @@
 
  *= require_tree .
  */
+
+/* Íconos de Foundation */
 @import 'foundation-icons'
 .size-24 
 	font-size: 1.5em
@@ -26,6 +28,12 @@
 	font-size: 8em
 	color: rgb(50, 185, 56)
 
+/* Para texto que reemplaza contenido no disponible */
+p1
+	font-size: .9em
+	color: #616161
+
+/* Estilos Header */
 #header
 	background-image: url('header_back1.jpg')
 	-webkit-background-size: cover
@@ -33,6 +41,20 @@
 		color: #fff
 		background-image: url('pink_back.png')
 		font-weight: bold
+	#medium-topbar
+		background-color: transparent
+		position: relative
+		bottom: -2.4rem
+		margin-bottom: 7%
+		#header-saldo
+			margin-top: -5.2%
+			z-index: -2
+			position: absolute
+			p
+				margin-top: -20%
+				background: none
+				color: #222222
+				font-weight: normal
 #top_menu
 	background-color: transparent
 	.divider

@@ -1,0 +1,24 @@
+.row
+	.columns.large-6
+		%h1.subheader Team
+		= simple_form_for @team do |f|
+			= f.association :game
+			= f.input :name
+			= f.input :description
+			= f.input :tag
+			= f.button :submit
+	.columns.large-6
+		%h1.subheader Teams list
+		%ul
+			- @user_teams.each do |team|
+				%li
+					= team.game.name
+					\- #{team.tag} - #{team.name.capitalize}
+					%ul
+						%li
+							%span.subheader Members
+							- team.team_members.order('role_id').each do |member|
+								%li
+									= member.user.username.capitalize
+									= member.role.name
+													
