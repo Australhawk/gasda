@@ -163,4 +163,5 @@
 											- team.team_members.order('role_id').each do |member|
 												%li
 													= member.user.username.capitalize
-													\- #{get_team_role member.user, team}
+													= member.role.name
+													
