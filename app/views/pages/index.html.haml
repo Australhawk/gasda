@@ -20,11 +20,11 @@
 			=form_for @user, url: new_session_path(@user) do |f|
 				.row{ :style => "padding: 2.5% 0 0 5%;"}
 					.small-4.columns
-						=f.text_field :username, :placeholder => t(:user_lower)
+						=f.text_field :username, :placeholder => t('home.login.user')
 					.small-4.columns
-						=f.password_field :password, :placeholder => t(:password_lower)
+						=f.password_field :password, :placeholder => t('home.login.password')
 					.small-4.columns
-						=f.submit t('Entrar'), :class => "button login-button"
+						=f.submit t('home.login.entrar'), :class => "button login-button"
 
 		#portada-register.row.white
 			.medium-7.columns{ :style => "padding-top: 5%;"}
@@ -32,10 +32,10 @@
 				%br/
 				%br/
 				%h3 
-					%strong COMIENZA AHORA TU CARRERA POR LA FAMA
-				%h5 Crea tu equipo
-				%h5 Gana torneos, gana dinero
-				%h5 Profesionalízate
+					%strong= t 'home.comienzaahoratucarreraporlafama'
+				%h5= t 'home.Creatuequipo'
+				%h5= t 'home.Ganatorneosganadinero'
+				%h5= t 'home.Profesionalizate'
 				= link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
 				= link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
 				%br/
@@ -43,58 +43,62 @@
 				.fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/Gamerpvp", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
 			#unete.medium-5.columns
 				%h2.text-center 
-					%strong UNETE AHORA Y GRATIS
+					%strong= t 'UNETEAHORAYGRATIS'
 					#register.row
 						.column.small-12.white
 							=form_for @user do |f|
 								.row
 									.small-4.columns
-										=f.label :username, "Usuario"
+										=f.label :username, t("home.register.Usuario")
 									.small-8.columns
 										=f.text_field :username
 								.row
 									.small-4.columns
-										=f.label :email, "E-mail"
+										=f.label :email, t("home.register.email")
 									.small-8.columns
 										=f.text_field :email
 								.row
 									.small-4.columns
-										=f.label :email_confirmation, "Confirma E-mail"
+										=f.label :email_confirmation, t("home.register.ConfirmaEmail")
 									.small-8.columns
 										=f.text_field :email_confirmation
 								.row
 									.small-4.columns
-										=f.label :password, "Contraseña"
+										=f.label :password, t("home.register.Contraseña")
 									.small-8.columns
 										=f.password_field :password
 								.row
 									.small-4.columns
-										=f.label :password_confirmation, "Repite Contraseña"
+										=f.label :password_confirmation, t("home.register.RepiteContraseña")
 									.small-8.columns
 										=f.password_field :password_confirmation
 								.row
 									.small-4.columns
-										=f.label :birthday, "Cumpleaños"
+										=f.label :birthday, t("home.register.birthday")
 									.small-8.columns
 										=f.date_field :birthday
 								.row
-									%p{ :style => "margin-bottom: 0px;"} Acepto Términos y Condiciones
+									%p{ :style => "margin-bottom: 0px;"} 
+										=t("home.register.AceptoTerminosyCondiciones")
 								.row
-									=f.submit 'Registrar', :class => "button login-button"
+									=f.submit t('home.register.Registrar'), :class => "button login-button"
 
 
 %hr.styled.row
 #torneos_desafios.row
 	.medium-9small-centered.columns.text-center
 		%h1
-			%strong TORNEOS Y DESAFÍOS 1VS1
+			%strong
+				=t "home.TORNEOSYDESAFIOS1VS1"
 	.row
 		.large-6.columns.text-center{ :style => "padding: 5% 0 8%;"}
 			= image_tag('logo_dota.png')
 			= image_tag('logo_lol.png', style: "margin-top: 8%;")
 		.large-6.columns.text-center{ :style => "padding: 8% 0 8%;"}
 			%h3
-				%strong ... y pronto
+				%strong 
+					\... 
+					=t("home.ypronto")
 			= image_tag('logo_sc.png', style: "max-width: 35%")
 			= image_tag('logo_cs.png', style: "max-width: 35%")
 			= image_tag('logo_mk.png', style: "max-width: 35%")
@@ -103,7 +107,8 @@
 #como_funciona.row
 	.small-9.small-centered.columns.text-center
 		%h1
-			%strong CÓMO FUNCIONA
+			%strong
+			=t "home.COMOFUNCIONA"
 	.row{ :style => "margin-top: 4%;"}
 		.large-6.columns
 			.small-6.columns
@@ -112,14 +117,16 @@
 						%h2
 							%strong 1
 					.small-9.columns{ :style => "padding: 12% 4% 0;"}
-						%p Regístrate y enlaza tu cuenta de videojuego
+						%p
+							=t("home.Registrateyenlazatucuentadevideojuego")
 			.small-6.columns
 				.row
 					.small-3.columns
 						%h2
 							%strong 2
 					.small-9.columns{ :style => "padding: 12% 4% 0;"}
-						%p Busca e inscríbete en torneos o desafíos 1v1
+						%p 
+							=t("home.Buscaeinscribeteentorneosodesafios1v1")
 		.large-6.columns
 			.small-6.columns
 				.row
@@ -127,11 +134,13 @@
 						%h2
 							%strong 3
 					.small-9.columns{ :style => "padding: 12% 4% 0;"}
-						%p Juega y luego reporta el resultado
+						%p 
+							=t("home.Juegayluegoreportaelresultado")
 			.small-6.columns
 				.row
 					.small-3.columns
 						%h2
 							%strong 4 	
 					.small-9.columns{ :style => "padding: 12% 4% 0;"}
-						%p Cobra, sigue jugando y gana dinero
+						%p 
+							=t("home.Cobrasiguejugandoyganadinero")

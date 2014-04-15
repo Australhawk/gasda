@@ -137,6 +137,7 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+  landing: inicio
   number:
     currency:
       format:
