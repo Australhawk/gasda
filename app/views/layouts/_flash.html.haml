@@ -1,0 +1,7 @@
+.row
+  .large-12.columns
+    - flash.each do |type,message|
+      .alert-box.success.round{:style => "margin-top: 2%", :data => { 'alert' => ''}}
+        =flash[message]
+        =link_to raw('&times;'), '#', class: 'close'
+        %span.flash= message
