@@ -1,4 +1,14 @@
 en:
+  activerecord:
+    attributes:
+      user:
+        birthday: 
+        email: 
+        password: 
+        password_confirmation: 
+        username: 
+    models:
+      user: 
   command:
     index:
       BUSCAUNOPONENTEdospuntosCHAT: 'LOOK FOR AN OPPONENT: CHAT'
