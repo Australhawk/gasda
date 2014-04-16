@@ -17,7 +17,7 @@
 					=link_to raw('&times;'), '#', class: 'close'
 	#portada-login
 		#login-bar.right
-			=form_for @user, url: new_session_path(@user) do |f|
+			=form_for @user, url: new_session_path(@user, :locale => I18n.locale) do |f|
 				.row{ :style => "padding: 2.5% 0 0 5%;"}
 					.small-4.columns
 						=f.text_field :username, :placeholder => t('home.login.user')

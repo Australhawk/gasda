@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 		else
 			@user = user
 			flash.now.alert = "Fill all pls"
-			render 'pages/index'
+
+			render 'pages/index', layout: 'home'
 		end
 	end
 	def user_parameters

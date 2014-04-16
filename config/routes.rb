@@ -3,7 +3,7 @@ GamerPVP::Application.routes.draw do
   root 'pages#landing'
   
   scope "(:locale)", locale: /en|es|pt-BR/ do
-    get '/' => 'main#index'
+    get '/' => 'pages#landing'
     get 'home' => 'pages#index', as: :home
     get 'main' => 'main#index', as: :main
     get 'choose' => 'main#choose', as: :choose
