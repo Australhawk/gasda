@@ -46,39 +46,52 @@
 					%strong= t 'home.UNETEAHORAYGRATIS'
 					#register.row
 						.column.small-12.white
-							=form_for @user do |f|
+							- if @user.errors.any?
+								.alert-box.alert.round{:style => "margin-top: 2%", :data => { 'alert' => ''}}
+									- @user.errors.each do |field,error|
+										%span.flash= t('home.register.field_error',field: field,error: error)
+										%br
+									=link_to raw('&times;'), '#', class: 'close'
+							=form_for @user, data: { abide: "" } do |f|
 								.row
 									.small-4.columns
 										=f.label :username, t("home.register.Usuario")
 									.small-8.columns
-										=f.text_field :username
+										=f.text_field :username, required: true, pattern: "alpha_numeric"
+										%small.error= t('home.register.error_user')
 								.row
 									.small-4.columns
 										=f.label :email, t("home.register.email")
 									.small-8.columns
-										=f.text_field :email
+										=f.email_field :email, required: true, pattern: "email"
+										%small.error= t('home.register.error_email')
 								.row
 									.small-4.columns
 										=f.label :email_confirmation, t("home.register.ConfirmaEmail")
 									.small-8.columns
-										=f.text_field :email_confirmation
+										=f.text_field :email_confirmation, required: true, pattern: "email", data: { equalto: :user_email}
+										%small.error= t('home.register.error_confirm_email')
 								.row
 									.small-4.columns
 										=f.label :password, t("home.register.Contraseña")
 									.small-8.columns
-										=f.password_field :password
+										=f.password_field :password, required: true
+										%small.error= t('home.register.error_pass')
 								.row
 									.small-4.columns
 										=f.label :password_confirmation, t("home.register.RepiteContraseña")
 									.small-8.columns
-										=f.password_field :password_confirmation
+										=f.password_field :password_confirmation, required: true
+										%small.error= t('home.register.error_confirm_pass')
 								.row
 									.small-4.columns
 										=f.label :birthday, t("home.register.birthday")
 									.small-8.columns
-										=f.date_field :birthday
+										=f.date_field :birthday, required: true, pattern: "date"
+										%small.error= t('home.register.error_bithday')
 								.row
-									%p{ :style => "margin-bottom: 0px;"} 
+									%p{ :style => "margin-bottom: 0px;"}
+										=f.check_box :terms, required: true
 										=t("home.register.AceptoTerminosyCondiciones")
 								.row
 									=f.submit t('home.register.Registrar'), :class => "button login-button"

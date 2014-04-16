@@ -21,6 +21,13 @@ en:
       Registrar: Register
       RepiteContraseña: Confirm Password
       Usuario: User
+      error_bithday: There's a problem with the birthday
+      error_confirm_email: E-mails don't match
+      error_confirm_pass: 'Passwords don''t match '
+      error_email: Check your e-mail adress
+      error_pass: Password invalid
+      error_user: 
+      field_error: 
     Registrateyenlazatucuentadevideojuego: Register and link to your game account
     TORNEOSYDESAFIOS1VS1: TOURNAMENTS AND 1V1 CHALLENGES
     UNETEAHORAYGRATIS: JOIN NOW FOR FREE
@@ -270,3 +277,13 @@ en:
       Notieneseventosnipartidosagendados: You have no events or matches scheduled
       Send: Send
       SUGERENCIAS: SUGGESTIONS
+  activerecord:
+    attributes:
+      user:
+        birthday: 
+        email: 
+        password: 
+        password_confirmation: 
+        username: 
+    models:
+      user: 
