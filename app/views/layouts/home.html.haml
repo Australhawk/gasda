@@ -13,20 +13,29 @@
     #footer
       .row
         .small-4.columns.text-center
-          %h4.subheader SÍGUENOS
+          %h4.subheader 
+          =t("footer.SIGUENOS")
           = link_to image_tag('social-icons/facebook.png'), 'https://www.facebook.com/Gamerpvp', target: '_blank'
           = link_to image_tag('social-icons/twitter.png'), 'https://twitter.com/GamerPVPcom', target: '_blank'
         .small-4.columns.text-center
-          %h4.subheader PARTNERS
+          %h4.subheader
+          =t("footer.PARTNERS")
         .small-4.columns.text-center
-          %h4.subheader SOPORTE
+          %h4.subheader
+          =t("footer.SOPORTE")
           %br/
-          %p F.A.Q.
-          %p Contacto
-          %p Feedback
-          %p Juego Responsable
-          %p Privacidad
-          %p Términos y Condiciones
+          %p 
+          =t("footer.FAQ")
+          %p 
+          =t("footer.Contacto")
+          %p 
+          =t("footer.Feedback")
+          %p 
+          =t("footer.JuegoResponsable")
+          %p 
+          =t("footer.Privacidad")
+          %p 
+          =t("footer.TerminosyCondiciones")
       .row{:style => "height: 2rem;"}
         .small-4.columns
         .small-4.columns
@@ -35,6 +44,8 @@
         .small-6.columns.text-left
           = image_tag('over18_credit.png')
         .small-6.columns.text-right
-          %p{:style => "margin: 1rem auto auto auto"} 2014 GamerPVP. Todos los derechos reservados.
+          %p{:style => "margin: 1rem auto auto auto"} 
+          2014 GamerPVP.
+          =t("footer.Todoslosderechosreservados")
 
     = javascript_include_tag "application"

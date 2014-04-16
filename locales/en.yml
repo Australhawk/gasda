@@ -1,4 +1,17 @@
 en:
+  command:
+    index:
+      BUSCAUNOPONENTEdospuntosCHAT: 'LOOK FOR AN OPPONENT: CHAT'
+      CALENDARIO: CALENDAR
+      COMMANDCENTER: COMMAND CENTER
+      Comienzaenlazandotuscuentasdevideojuegosparacomenzarasugerirtetorneos: Get started by linking your game's accounts to suggest you tournaments
+      MIS1V1: MY 1V1s
+      MISTORNEOS: MY TOURNAMENTS
+      Noestasparticipandodeninguntorneo: You're not participating in any tournament
+      Notienesactivoningundesafio: You have no active challenges
+      Notieneseventosnipartidosagendados: You have no events or matches scheduled
+      SUGERENCIAS: SUGGESTIONS
+      Send: Send
   date:
     abbr_day_names:
     - Sun
@@ -91,7 +104,7 @@ en:
     prompts:
       day: Day
       hour: Hour
-      minute: Minute
+      minute: Minutes
       month: Month
       second: Seconds
       year: Year
@@ -130,6 +143,39 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
+  footer:
+    Contacto: Contact
+    FAQ: FAQ
+    Feedback: Feedback
+    JuegoResponsable: Responsible game
+    PARTNERS: Partners
+    Privacidad: Privacy
+    SIGUENOS: Follow us
+    SOPORTE: Support
+    TerminosyCondiciones: Terms and Conditions
+    Todoslosderechosreservados: All rights reserved
+  header:
+    BANCO: BANK
+    Back: Back
+    CHOOSEYOURDESTINY: CHOOSE YOUR DESTINY
+    COMMANDCENTER: COMMAND CENTER
+    EditarPerfil: Edit Profile
+    Espanol: Spanish
+    Feedback: Feedback
+    HALLOFFAME: HALL OF FAME
+    Ingles: English
+    Logout: Log out
+    MIS JUEGOS: MY GAMES
+    MISEQUIPOS: MY TEAMS
+    NOTIFICACIONES: NOTIFICATIONS
+    Portugues: Portuguese
+    REPORTES: REPORTS
+    SINTITULO: NO TITLE
+    SaldoDisponible: Balance
+    TICKET: TICKET
+    VerPerfil: View Profile
+    masAgregar: "+ Add"
+    masCrearEquipo: "+ Create Team"
   helpers:
     select:
       prompt: Please select
@@ -137,7 +183,34 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
-  landing: inicio
+  home:
+    Buscaeinscribeteentorneosodesafios1v1: Search and sign up for tournaments or 1v1 challenges
+    COMOFUNCIONA: HOW DOES THIS WORKS
+    Cobrasiguejugandoyganadinero: Redeem, keep playing and earn money
+    Creatuequipo: Create your team
+    Ganatorneosganadinero: Win tournaments, win money
+    Juegayluegoreportaelresultado: Play and then report your results
+    Profesionalizate: Become a Pro
+    Registrateyenlazatucuentadevideojuego: Register and link to your game account
+    TORNEOSYDESAFIOS1VS1: TOURNAMENTS AND 1V1 CHALLENGES
+    UNETEAHORAYGRATIS: JOIN NOW FOR FREE
+    comienzaahoratucarreraporlafama: Your career for fame begins now
+    login:
+      entrar: Log In
+      password: Password
+      user: User
+    register:
+      AceptoTerminosyCondiciones: I agree to the Terms and Conditions
+      ConfirmaEmail: Confirm E-mail
+      Contraseña: Password
+      Registrar: Register
+      RepiteContraseña: Confirm Password
+      Usuario: User
+      birthday: Birthday
+      email: E-mail
+    ypronto: Soon
+  landing:
+    follow_us: FOLLOW US
   number:
     currency:
       format:

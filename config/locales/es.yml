@@ -1,1 +1,266 @@
 es:
+  home:
+    Buscaeinscribeteentorneosodesafios1v1: 'Busca e inscríbete en torneos o desafíos 1v1  '
+    Cobrasiguejugandoyganadinero: Cobra, sigue jugando y gana dinero
+    Juegayluegoreportaelresultado: Juega y luego reporta el resultado
+    comienzaahoratucarreraporlafama: Comienza ahora tu carrera por la fama
+    COMOFUNCIONA: CÓMO FUNCIONA
+    Creatuequipo: Crea tu equipo
+    Ganatorneosganadinero: Gana torneos, Gana dinero
+    login:
+      entrar: Entrar
+      password: contraseña
+      user: usuario
+    Profesionalizate: Profesionalízate
+    register:
+      AceptoTerminosyCondiciones: Acepto Términos y Condiciones
+      birthday: Cumpleaños
+      ConfirmaEmail: Confirma Email
+      Contraseña: Contraseña
+      email: Correo
+      Registrar: Registrar
+      RepiteContraseña: Repite Contraseña
+      Usuario: Usuario
+    Registrateyenlazatucuentadevideojuego: Registrate y enlaza tu cuenta de videojuego
+    TORNEOSYDESAFIOS1VS1: TORNEOS Y DESAFÍOS 1V1
+    UNETEAHORAYGRATIS: "ÚNETE AHORA Y GRATIS"
+    ypronto: y pronto
+  date:
+    abbr_day_names:
+    - Dom
+    - Lun
+    - Mar
+    - Mié
+    - Jue
+    - Vie
+    - Sáb
+    abbr_month_names:
+    - 
+    - Ene
+    - Feb
+    - Mar
+    - Abr
+    - May
+    - Jun
+    - Jul
+    - Ago
+    - Sep
+    - Oct
+    - Nov
+    - Dic
+    day_names:
+    - Domingo
+    - Lunes
+    - Martes
+    - Miércoles
+    - Jueves
+    - Viernes
+    - Sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+    month_names:
+    - 
+    - Enero
+    - Febrero
+    - Marzo
+    - Abril
+    - Mayo
+    - Junio
+    - Julio
+    - Agosto
+    - Septiembre
+    - Octubre
+    - Noviembre
+    - Diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: alrededor de 1 hora
+        other: alrededor de %{count} horas
+      about_x_months:
+        one: alrededor de 1 mes
+        other: alrededor de %{count} meses
+      about_x_years:
+        one: alrededor de 1 año
+        other: alrededor de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: "%{count} días"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      confirmation: no coincide con la confirmación
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor que o igual a %{count}
+      inclusion: no está incluido en la lista
+      invalid: no es válido
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor que o igual a %{count}
+      not_an_integer: debe ser un entero
+      not_a_number: no es un número
+      odd: debe ser impar
+      record_invalid: 'La validación falló: %{errors}'
+      taken: ya está en uso
+      too_long: es demasiado largo (%{count} caracteres máximo)
+      too_short: es demasiado corto (%{count} caracteres mínimo)
+      wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+    template:
+      body: 'Se encontraron problemas con los siguientes campos:'
+      header:
+        one: No se pudo guardar este/a %{model} porque se encontró 1 error
+        other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  helpers:
+    select:
+      prompt: Por favor seleccione
+    submit:
+      create: Crear %{model}
+      submit: Guardar %{model}
+      update: Actualizar %{model}
+  landing:
+    follow_us: SÍGUENOS Y ENTÉRATE
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: mil millones
+          million: millón
+          quadrillion: mil billones
+          thousand: mil
+          trillion: billón
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", y "
+      two_words_connector: " y "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%A, %d de %B de %Y %H:%M:%S %z"
+      long: "%d de %B de %Y %H:%M"
+      short: "%d de %b %H:%M"
+    pm: pm
+  footer:
+    Contacto: Contacto
+    FAQ: Preguntas frecuentes
+    Feedback: Feedback
+    JuegoResponsable: Juego responsable
+    PARTNERS: Compañeros
+    Privacidad: Privacidad
+    SIGUENOS: Síguenos
+    SOPORTE: Soporte
+    TerminosyCondiciones: Términos y Condiciones
+    Todoslosderechosreservados: Todos los derechos reservados
+  header:
+    Back: Volver
+    BANCO: BANCO
+    CHOOSEYOURDESTINY: ELIGE TU DESTINO
+    COMMANDCENTER: CENTRO DE COMANDO
+    EditarPerfil: Editar Perfil
+    Espanol: Español
+    Feedback: Feedback
+    HALLOFFAME: SALÓN DE LA FAMA
+    Ingles: Inglés
+    Logout: Salir
+    masAgregar: "+ Agregar"
+    masCrearEquipo: "+ Crear Equipo"
+    MISEQUIPOS: MIS EQUIPOS
+    MIS JUEGOS: MIS JUEGOS
+    NOTIFICACIONES: NOTIFICACIONES
+    Portugues: Portugués
+    REPORTES: REPORTES
+    SaldoDisponible: Saldo Disponible
+    TICKET: TICKET
+    VerPerfil: Ver Perfil
+    SINTITULO: SIN TITULO
+  command:
+    index:
+      BUSCAUNOPONENTEdospuntosCHAT: 'BUSCA UN OPONENTE: CHAT'
+      CALENDARIO: CALENDARIO
+      Comienzaenlazandotuscuentasdevideojuegosparacomenzarasugerirtetorneos: Comienza enlazando tus cuentas de videojuegos para comenzar a sugerirte torneos
+      COMMANDCENTER: CENTRO DE COMANDO
+      MIS1V1: MIS 1V1
+      MISTORNEOS: MIS TORNEOS
+      Noestasparticipandodeninguntorneo: No estás participando en ningún torneo
+      Notienesactivoningundesafio: No tienes activo ningún desafío
+      Notieneseventosnipartidosagendados: No tienes eventos ni partidos agendados
+      Send: Enviar
+      SUGERENCIAS: SUGERENCIAS

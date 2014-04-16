@@ -1,24 +1,28 @@
 GamerPVP::Application.routes.draw do
   mount RailsAdmin::Engine => '/manage', :as => 'rails_admin'
   root 'pages#landing'
-  get 'home' => 'pages#index', as: :home
-  get 'main' => 'main#index', as: :main
-  get 'choose' => 'main#choose', as: :choose
-  get 'halloffame' => 'main#halloffame', as: :halloffame
-  get 'main/newgame' => 'main#newgame', as: :newgame
-  get 'main/newteam' => 'main#newteam', as: :newteam
   
-  get 'ticket' => 'main#ticket', as: :ticket
-  get 'bank' => 'main#bank', as: :bank
-  get 'profile' => 'users#profile', as: :profile
-  get 'feedback' => 'main#feedback', as: :feedback
-  resources :users
-  post 'login' => 'sessions#create', as: :new_session
-  get 'logout' => 'sessions#destroy', as: :destroy_session
-  post 'accounts' => 'accounts#create', as: :accounts
-  post 'teams' => 'teams#create', as: :teams
-  post 'message' => 'messages#create', as: :messages
-  post 'user_statuses' => 'statuses#create', as: :user_statuses
+  scope "(:locale)", locale: /en|es|pt-BR/ do
+    get '/' => 'main#index'
+    get 'home' => 'pages#index', as: :home
+    get 'main' => 'main#index', as: :main
+    get 'choose' => 'main#choose', as: :choose
+    get 'halloffame' => 'main#halloffame', as: :halloffame
+    get 'main/newgame' => 'main#newgame', as: :newgame
+    get 'main/newteam' => 'main#newteam', as: :newteam
+    
+    get 'ticket' => 'main#ticket', as: :ticket
+    get 'bank' => 'main#bank', as: :bank
+    get 'profile' => 'users#profile', as: :profile
+    get 'feedback' => 'main#feedback', as: :feedback
+    resources :users
+    post 'login' => 'sessions#create', as: :new_session
+    get 'logout' => 'sessions#destroy', as: :destroy_session
+    post 'accounts' => 'accounts#create', as: :accounts
+    post 'teams' => 'teams#create', as: :teams
+    post 'message' => 'messages#create', as: :messages
+    post 'user_statuses' => 'statuses#create', as: :user_statuses
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

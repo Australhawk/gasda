@@ -9,7 +9,7 @@ group :development,:test do
   gem 'sqlite3'
   
 end
-
+gem 'rails-i18n', '~> 4.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 

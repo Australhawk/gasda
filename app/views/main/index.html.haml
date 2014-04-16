@@ -1,11 +1,11 @@
--lead 'COMMAND CENTER'
+-lead t("command.index.COMMANDCENTER")
 .row#main
 	.column.small-12.text-right.main-section
 		.row.main-section-header
-			%h2 CALENDARIO
+			%h2=t("command.index.CALENDARIO")
 			%i.fi-calendar.size-48
 		%hr.style-one.row
-		%p1 No tienes eventos ni partidos agendados
+		%p1=t("command.index.Notieneseventosnipartidosagendados")
 		-unless @eventos.nil?
 			-@eventos.each do |evento|
 				%p
@@ -20,10 +20,10 @@
 		.row.text-right.main-section
 			.small-6.columns
 				.row.main-section-header
-					%h2 MIS TORNEOS
+					%h2=t("command.index.MISTORNEOS")
 					%i.fi-trophy.size-48
 				%hr.style-one.row
-				%p1 No estas participando de ningún torneo
+				%p1=t("command.index.Noestasparticipandodeninguntorneo")
 				-unless @user_torneos.nil?
 					-@user_torneos.each do |torneo|
 						%p
@@ -33,18 +33,18 @@
 							
 			.small-6.columns
 				.row.main-section-header
-					%h2 MIS 1V1
+					%h2=t("command.index.MIS1V1")
 					%i.fi-skull.size-48
 				%hr.style-one.row
-				%p1 No tienes activo ningún desafío
+				%p1=t("command.index.Notienesactivoningundesafio")
 				=#Considerado solo un tipo de torneo
 
 	.column.small-12.text-right.main-section
 		.row.main-section-header
-			%h2 SUGERENCIAS
+			%h2=t("command.index.SUGERENCIAS")
 			%i.fi-bookmark.size-48
 		%hr.style-one.row
-		%p1 Comienza enlazando tus cuentas de videojuegos para comenzar a sugerirte torneos
+		%p1=t("command.index.Comienzaenlazandotuscuentasdevideojuegosparacomenzarasugerirtetorneos")
 		-unless @eventos.nil?
 			-@eventos.each do |evento|
 				%p
@@ -58,11 +58,11 @@
 
 	.column.small-12.text-right.main-section
 		.row.main-section-header
-			%h2 BUSCA UN OPONENTE: CHAT
+			%h2=t("command.index.BUSCAUNOPONENTEdospuntosCHAT")
 			%i.fi-target-two.size-48
 		%hr.style-one.row
 		%ul#chat
 			= render @messages
 		= form_for Message.new, remote: true do |f|
 			= f.text_field :message
-			= f.submit "Send"
+			= f.submit t("command.index.Send")

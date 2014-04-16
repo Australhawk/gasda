@@ -10,5 +10,13 @@ class ApplicationController < ActionController::Base
 			redirect_to home_path
 		end
 	end
+	before_action :set_locale
+ 	def default_url_options(options={})
+	  logger.debug "default_url_options is passed options: #{options.inspect}\n"
+	  { locale: I18n.locale }
+	end
+	def set_locale
+	  I18n.locale = params[:locale] || I18n.default_locale
+	end
 	helper_method :current_user
 end
