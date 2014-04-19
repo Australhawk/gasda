@@ -1,4 +1,14 @@
 es:
+  activerecord:
+    attributes:
+      user:
+        birthday: 
+        email: 
+        password: 
+        password_confirmation: 
+        username: 
+    models:
+      user: 
   command:
     index:
       BUSCAUNOPONENTEdospuntosCHAT: 'BUSCA UN OPONENTE: CHAT'
@@ -146,7 +156,7 @@ es:
     FAQ: Preguntas frecuentes
     Feedback: Feedback
     JuegoResponsable: Juego responsable
-    PARTNERS: Compañeros
+    PARTNERS: Socios
     Privacidad: Privacidad
     SIGUENOS: Síguenos
     SOPORTE: Soporte

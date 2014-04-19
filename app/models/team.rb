@@ -8,4 +8,5 @@ class Team < ActiveRecord::Base
   belongs_to :game
   validates_presence_of :tag, :name, :game
   validates_uniqueness_of :tag, :scope => :game, :case_sensitive => false
+  validates_associated :game, :users
 end

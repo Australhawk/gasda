@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
 	validates_confirmation_of :email,:password
 	validates_presence_of :username, :birthday, :email, :on => :create
 	validates_uniqueness_of :username, :email, :case_sensitive => false
+	validates_acceptance_of :terms
+	validates :username, exclusion: {in: %w(admin gpvp gamerpvp guest temp www administrador manager staff)}, length: { minimum: 4 }, format: { with: /\A[a-zA-Z0-9]+\z/,
+    message: "only allows letters" }
+	validates :password, length: { minimum: 6 }
 	has_secure_password
 	has_many :user_statuses
   has_many :accounts
