@@ -25,9 +25,9 @@ en:
       error_confirm_email: E-mails don't match
       error_confirm_pass: 'Passwords don''t match '
       error_email: Check your e-mail adress
-      error_pass: Password invalid
-      error_user: 
-      field_error: 
+      error_pass: Invalid password
+      error_user: User name can only contain alphanumeric characters
+      field_error: 'The %{field} field %{error} '
     Registrateyenlazatucuentadevideojuego: Register and link to your game account
     TORNEOSYDESAFIOS1VS1: TOURNAMENTS AND 1V1 CHALLENGES
     UNETEAHORAYGRATIS: JOIN NOW FOR FREE
@@ -170,6 +170,8 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+      account:
+        create: 
   number:
     currency:
       format:
@@ -277,13 +279,68 @@ en:
       Notieneseventosnipartidosagendados: You have no events or matches scheduled
       Send: Send
       SUGERENCIAS: SUGGESTIONS
+    newgame:
+      ENLAZADOS: 
+      EQUIPOS: 
+      GESTIONDEJUEGOS: 
   activerecord:
     attributes:
       user:
-        birthday: 
-        email: 
-        password: 
-        password_confirmation: 
+        birthday: birthday
+        email: e-mail
+        password: password
+        password_confirmation: password confirmation
+        username: username
+      account:
+        account_number: 
+        extra: 
+        game: 
+        server: 
         username: 
+      message:
+        game: Game
+        user: User
+      user_status:
+        user: 
     models:
-      user: 
+      user: user
+      account: 
+      message: Message
+      user_status: 
+  newgame:
+    ENLAZADOS: 
+    EQUIPOS: 
+    GESTIONDEJUEGOS: 
+  sessions:
+    Invalidemailorpassword: Invalid mail or password
+    Loggedin: Logged in succesfully
+    Loggedout: Logged out
+  simple_form:
+    hints:
+      account:
+        newgame:
+          account_number: 
+          extra: 
+          game: 
+          server: 
+          username: 
+    labels:
+      account:
+        newgame:
+          account_number: 
+          extra: 
+          game: 
+          server: 
+          username: 
+    placeholders:
+      account:
+        newgame:
+          account_number: 
+          extra: 
+          username: 
+    required:
+      html: 
+      mark: 
+      text: 
+  users:
+    Registered: Registered succesfully
