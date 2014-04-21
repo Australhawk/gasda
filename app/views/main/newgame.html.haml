@@ -13,33 +13,73 @@
 
 	.column.small-12.text-right.main-section
 		.row.main-section-header
-			%h2=t("command.newgame.GESTIONDEJUEGOS")
-			%i.fi-widget.size-48
+			%h2 GESTION DE JUEGOS
+			%i.fi-widget.size-48.ficolor
 
 		%hr.style-one.row{:style => "margin-bottom: 5%"}
 
+		.row{:style => "margin-bottom: 8%"}
+			.small-6.columns.text-center
+				%h4.bolder ENLAZADOS
+				%p1 Aún no has enlazado juegos, comienza ¡ahora!
+
+
+			.small-6.columns.text-center
+				%h4.bolder EQUIPOS
+				%p1 ¡Agrega algún juego para crear un equipo!
+
 		.row
-			.small-6.columns
-				%h4.bolder.text-center=t("command.newgame.ENLAZADOS")
+			.small-12.columns.text-center
+				%h4.bolder JUEGOS DISPONIBLES
+				%p1 Selecciona un juego y enlázalo a tu cuenta GamerPvP y comienza a buscar torneos y desafíos ¡ahora!
+				%ul.small-block-grid-5{:style => "margin-top: 2%"}
+					%li
+						=link_to image_tag('logo_dota.png'), '#', "data-reveal-id" => "addDota"
+					%li
+						=link_to image_tag('logo_lol.png'), '#', "data-reveal-id" => "addLol"
+					%li
+						%span.label.alert Pronto
+						=image_tag('logo_sc.png')
+					%li
+						%span.label.alert Pronto
+						=image_tag('logo_cs.png')	
+					%li
+						%span.label.alert Pronto
+						=image_tag('logo_mk.png')
 
 
-			.small-6.columns
-				%h4.bolder.text-center=t("command.newgame.EQUIPOS")
+	#addDota.reveal-modal{"data-reveal" => ""}
+		.row
+			.columns.large-6
+				%h3.bolder ¡Agrega tu cuenta de DOTA 2!
+				= simple_form_for @account do |f|
+					= f.association :game
+					= f.association :server
+					= f.input :account_number
+					= f.input :username
+					= f.input :extra
+					= f.button :submit
+			.columns.large-6.text-center{:style => "padding-top: 10%"}
+				=image_tag('logo_dota.png')
+				%br
+				%i.fi-info.size-24
+				%p1 Los datos de tu cuenta se encuentran bajo un servidor seguro.
+		%a.close-reveal-modal ×
 
-	-# .row
-	-# 	.columns.large-6
-	-# 		%h1.subheader Account
-	-# 		= simple_form_for @account do |f|
-	-# 			= f.association :game
-	-# 			= f.association :server
-	-# 			= f.input :account_number
-	-# 			= f.input :username
-	-# 			= f.input :extra
-	-# 			= f.button :submit
-	-# 	.columns.large-6
-	-# 		%h1.subheader Accounts list
-	-# 		%ul
-	-# 			- @user_accounts.each do |account|
-	-# 				%li
-	-# 					= account.game.name
-	-# 					\- #{account.server.name} - #{account.username.capitalize}
+	#addLol.reveal-modal{"data-reveal" => ""}
+		.row
+			.columns.large-6
+				%h3.bolder ¡Agrega tu cuenta de LEAGUE OF LEGENDS!
+				= simple_form_for @account do |f|
+					= f.association :game
+					= f.association :server
+					= f.input :account_number
+					= f.input :username
+					= f.input :extra
+					= f.button :submit
+			.columns.large-6.text-center{:style => "padding-top: 10%"}
+				=image_tag('logo_lol.png')
+				%br
+				%i.fi-info.size-24
+				%p1 Los datos de tu cuenta se encuentran bajo un servidor seguro.
+		%a.close-reveal-modal ×

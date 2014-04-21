@@ -25,15 +25,9 @@ en:
       error_confirm_email: E-mails don't match
       error_confirm_pass: 'Passwords don''t match '
       error_email: Check your e-mail adress
-<<<<<<< HEAD
       error_pass: Invalid password
       error_user: User name can only contain alphanumeric characters
       field_error: 'The %{field} field %{error} '
-=======
-      error_pass: Password invalid
-      error_user: 
-      field_error: 
->>>>>>> 5bd59fab7da55229dafa4b7b970f5d12bfc9f785
     Registrateyenlazatucuentadevideojuego: Register and link to your game account
     TORNEOSYDESAFIOS1VS1: TOURNAMENTS AND 1V1 CHALLENGES
     UNETEAHORAYGRATIS: JOIN NOW FOR FREE
@@ -285,7 +279,6 @@ en:
       Notieneseventosnipartidosagendados: You have no events or matches scheduled
       Send: Send
       SUGERENCIAS: SUGGESTIONS
-<<<<<<< HEAD
     newgame:
       ENLAZADOS: 
       EQUIPOS: 
@@ -298,22 +291,22 @@ en:
         password: password
         password_confirmation: password confirmation
         username: username
-      message:
-        game: Game
-        user: User
-      user_status:
-        user: 
       account:
         account_number: 
         extra: 
         game: 
         server: 
         username: 
+      message:
+        game: Game
+        user: User
+      user_status:
+        user: 
     models:
-      user: user
-      message: Message
-      user_status: 
       account: 
+      message: Message
+      user: user
+      user_status: 
   sessions:
     Invalidemailorpassword: Invalid mail or password
     Loggedin: Logged in succesfully
@@ -328,6 +321,7 @@ en:
           game: 
           server: 
           username: 
+          extra: 
     labels:
       account:
         newgame:
@@ -350,15 +344,3 @@ en:
     ENLAZADOS: 
     EQUIPOS: 
     GESTIONDEJUEGOS: 
-=======
-  activerecord:
-    attributes:
-      user:
-        birthday: 
-        email: 
-        password: 
-        password_confirmation: 
-        username: 
-    models:
-      user: 
->>>>>>> 5bd59fab7da55229dafa4b7b970f5d12bfc9f785
