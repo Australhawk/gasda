@@ -22,6 +22,10 @@ es:
       Notieneseventosnipartidosagendados: No tienes eventos ni partidos agendados
       SUGERENCIAS: SUGERENCIAS
       Send: Enviar
+    newgame:
+      GESTIONDEJUEGOS: GESTIÓN DE JUEGO
+      ENLAZADOS: Enlazados
+      EQUIPOS: Equipos
   date:
     abbr_day_names:
     - Dom

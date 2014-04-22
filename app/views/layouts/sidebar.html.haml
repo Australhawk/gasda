@@ -20,6 +20,7 @@
         .small-3.columns.text-right{:style => "padding-top: 1%"}
           %i.fi-mail.size-48
           %i.fi-wrench.size-48
+      %hr.style-one.row{:style => "margin-bottom: 5rem"}
       .row{style: 'padding-top: 0%'}  
         .small-3.columns
           =image_tag current_user.avatar(270)
@@ -38,7 +39,7 @@
                     =t("header.MIS JUEGOS")
                   %ul#drop-juegos.medium.f-dropdown{"data-dropdown-content" => ""}
                     %li
-                      =link_to t('header.masAgregar'), newgame_path
+                      =link_to t('header.masAgregar'), newgame_path(@newgame, anchor: "main")
                     -unless @user_games.nil?
                       -@user_games.uniq.each do |game|
                         %li
@@ -48,7 +49,7 @@
                     =t("header.MISEQUIPOS")
                   %ul#drop-equipos.medium.f-dropdown{"data-dropdown-content" => ""}
                     %li
-                      =link_to t('header.masCrearEquipo'), newteam_path
+                      =link_to t('header.masCrearEquipo'), newteam_path(@newteam, anchor: "main")
                     -unless @user_teams.nil?
                       -@user_teams.each do |team|
                         %li

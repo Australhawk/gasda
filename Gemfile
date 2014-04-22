@@ -50,7 +50,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7', :require => "bcrypt"
 
 gem 'simple_form'
 
@@ -62,6 +62,7 @@ gem 'private_pub'
 gem 'faye'
 gem 'thin'
 gem 'localeapp'
+gem 'psych'
 # Use unicorn as the app server
 # gem 'unicorn'
 

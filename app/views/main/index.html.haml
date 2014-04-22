@@ -1,9 +1,20 @@
 -lead t("command.index.COMMANDCENTER")
 .row#main
+	=form_for current_user, url: destroy_session_path, method: 'post' do |f|
+		%h3.bolder
+			=current_user.username
+		-if current_user.user_statuses.last.present?
+			\"
+			=current_user.user_statuses.last.status
+			\"
+	=form_for @status,  method: 'post' do |f|
+		=f.text_area :status, :placeholder => "What's going on Biiiaaaattchhhh??!!"
+		=f.submit 'Actualizar'
+		
 	.column.small-12.text-right.main-section
 		.row.main-section-header
 			%h2=t("command.index.CALENDARIO")
-			%i.fi-calendar.size-48
+			%i.fi-calendar.size-48.ficolor
 		%hr.style-one.row
 		%p1=t("command.index.Notieneseventosnipartidosagendados")
 		-unless @eventos.nil?
@@ -21,7 +32,7 @@
 			.small-6.columns
 				.row.main-section-header
 					%h2=t("command.index.MISTORNEOS")
-					%i.fi-trophy.size-48
+					%i.fi-trophy.size-48.ficolor
 				%hr.style-one.row
 				%p1=t("command.index.Noestasparticipandodeninguntorneo")
 				-unless @user_torneos.nil?
@@ -34,7 +45,7 @@
 			.small-6.columns
 				.row.main-section-header
 					%h2=t("command.index.MIS1V1")
-					%i.fi-skull.size-48
+					%i.fi-skull.size-48.ficolor
 				%hr.style-one.row
 				%p1=t("command.index.Notienesactivoningundesafio")
 				=#Considerado solo un tipo de torneo
@@ -42,7 +53,7 @@
 	.column.small-12.text-right.main-section
 		.row.main-section-header
 			%h2=t("command.index.SUGERENCIAS")
-			%i.fi-bookmark.size-48
+			%i.fi-bookmark.size-48.ficolor
 		%hr.style-one.row
 		%p1=t("command.index.Comienzaenlazandotuscuentasdevideojuegosparacomenzarasugerirtetorneos")
 		-unless @eventos.nil?
@@ -59,7 +70,7 @@
 	.column.small-12.text-right.main-section
 		.row.main-section-header
 			%h2=t("command.index.BUSCAUNOPONENTEdospuntosCHAT")
-			%i.fi-target-two.size-48
+			%i.fi-target-two.size-48.ficolor
 		%hr.style-one.row
 		%ul#chat
 			= render @messages

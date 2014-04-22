@@ -1,24 +1,214 @@
-.row
-	.columns.large-6
-		%h1.subheader Team
-		= simple_form_for @team do |f|
-			= f.association :game
-			= f.input :name
-			= f.input :description
-			= f.input :tag
-			= f.button :submit
-	.columns.large-6
-		%h1.subheader Teams list
-		%ul
-			- @user_teams.each do |team|
-				%li
-					= team.game.name
-					\- #{team.tag} - #{team.name.capitalize}
-					%ul
-						%li
-							%span.subheader Members
-							- team.team_members.order('role_id').each do |member|
-								%li
-									= member.user.username.capitalize
-									= member.role.name
+-lead t("command.index.COMMANDCENTER")
+.row#main
+	=form_for current_user, url: destroy_session_path, method: 'post' do |f|
+		%h3.bolder
+			=current_user.username
+		-if current_user.user_statuses.last.present?
+			\"
+			=current_user.user_statuses.last.status
+			\"
+	=form_for @status,  method: 'post' do |f|
+		=f.text_area :status, :placeholder => "What's going on Biiiaaaattchhhh??!!"
+		=f.submit 'Actualizar'
+
+	.column.small-12.text-right.main-section
+		.row.main-section-header
+			%h2 GESTION DE EQUIPOS
+			%i.fi-widget.size-48.ficolor
+
+		%hr.style-one.row{:style => "margin-bottom: 5%"}
+
+		%dl.tabs{"data-tab" => ""}
+			%dd.active
+				%a{href: "#panel2-1"} 
+					%h4.bolder Dota 2
+			%dd
+				%a{href: "#panel2-2"}
+					%h4.bolder League of Legends
+
+		.tabs-content
+			#panel2-1.content.active
+				.row.text-left{:style => "padding-left: 2%"}
+					-# NO ha creado equipo
+					%p1 Crea tu primer equipo para Dota 2
+					%p1
+						=link_to 'AQUI','#', "data-reveal-id" => "addEquipoDota"
+					#addEquipoDota.reveal-modal{"data-reveal" => ""}
+						.row
+							.columns.large-6
+								%h3.bolder ¡Crea tu equipo!
+								%form
+									%fieldset
+										%legend Información del equipo
+										%label
+											Nombre
+											%input{placeholder: "", type: "text"}/
+										%label
+											TAG
+											%input{placeholder: "", type: "text"}/
+										%label
+											Servidor
+											%input{placeholder: "", type: "text"}/
+										%label
+											ID
+											%input{placeholder: "", type: "text"}/
+										%label
+											Avatar (150x150 pixeles máximo)
+
+									%fieldset
+										%legend Integrantes
+										%label
+											Ingresa sus correos electrónicos y se les enviará una invitación
+											%input{placeholder: "Ejemplo: usuario1@mail.com, usuario2@mail.com", type: "text"}/
+
+
+							.columns.large-6.text-center{:style => "padding-top: 10%"}
+								=image_tag('logo_dota.png')
+								%br
+								%i.fi-info.size-24
+								%p1 Los datos de tu cuenta se encuentran bajo un servidor seguro.
+								%br
+								%br
+								%a.button
+									CREAR EQUIPO Y ENVIAR INVITACIONES
+						%a.close-reveal-modal ×
+
+					-# SI ha creado equipo
+					%br
+					%hr.styled
+					.small-2.columns.text-center
+						%i.fi-torsos-all.size-large
+						%i.fi-pencil.size-24
+						%i.fi-trash.size-24
+					.small-10.columns
+						%h3.bolder Nombre del team
+						%h6 ID: #12345
+						%h6 REPUTACIÓN: #12345
+						%h6 LIGA: #12345
+						%h6 GAMERPVP RANK: #12345
+
+						%br
+						%h5.bolder INTEGRANTES
+						%table
+							%thead
+								%tr
+									%th{width: "200"} Nick GamerPvP
+									%th{width: "150"} Nombre Invocador
+									%th{width: "150"} Liga
+									%th{width: "75"} Carril
+									%th{width: "75"}
+								%tbody
+								%tr
+									%td 
+										%a Austral
+									%td
+										%a AustralNOOB
+									%td Bronce V
+									%td Support
+									%td.text-center
+										%i.fi-pencil.size-24
+										%i.fi-trash.size-24
+								%tr
+									%td 
+										%a Cocopacheco
+									%td
+										%a Coquitox
+									%td Bronce IV
+									%td Top
+									%td.text-center
+										%i.fi-pencil.size-24
+										%i.fi-trash.size-24
+								%tr
+									%td 
+										%a Anovatao
+									%td
+										%a Anovataditox
+									%td Bronce IV
+									%td ADC
+									%td.text-center
+										%i.fi-pencil.size-24
+										%i.fi-trash.size-24
+								%tr
+									%td 
+										=link_to '+ Agregar','#', "data-reveal-id" => "addTeamMember"
+									%td
+										%a 
+									%td 
+									%td
+									%td
+								%tr
+									%td 
+										=link_to '+ Agregar','#', "data-reveal-id" => "addTeamMember"
+									%td
+										%a 
+									%td 
+									%td 
+									%td
+
+					#addTeamMember.reveal-modal{"data-reveal" => ""}
+						.row
+							.columns.large-6
+								%h3.bolder ¡Completa tu equipo!
+								%form
+									%fieldset
+										%legend Vía E-mail
+										%label
+											Dirección
+											%input{placeholder: "", type: "text"}
+
+									%fieldset
+										%legend Vía Facebook
+										%label
+											[]
+
+									%fieldset
+										%legend Por nombre de usuario en GamerPvP
+										%label
+											Nickname
+											%input{placeholder: "", type: "text"}
+
+							.columns.large-6.text-center{:style => "padding-top: 10%"}
+								%br
+								%br
+								%br
+								%a.button
+									¡HECHO!
+						%a.close-reveal-modal ×
+
+
+
+
+			#panel2-2.content
+				.row.text-left{:style => "padding-left: 2%"}
+					-# NO ha creado equipo
+					%p1 Crea tu primer equipo para League of Legends
+
+					-# SI ha creado equipo
+
+
+
+
+-# .row
+-# 	.columns.large-6
+-# 		%h1.subheader Team
+-# 		= simple_form_for @team do |f|
+-# 			= f.association :game
+-# 			= f.input :name
+-# 			= f.input :description
+-# 			= f.input :tag
+-# 			= f.button :submit
+-# 	.columns.large-6
+-# 		%h1.subheader Teams list
+-# 		%ul
+-# 			- @user_teams.each do |team|
+-# 				%li
+-# 					= team.game.name
+-# 					\- #{team.tag} - #{team.name.capitalize}
+-# 					%ul
+-# 						%li
+-# 							%span.subheader Members
+-# 							- team.team_members.order('role_id').each do |member|
+-# 								%li
+-# 									= member.user.username.capitalize
+-# 									= member.role.name
 													
