@@ -25,6 +25,9 @@ class MainController < ApplicationController
 	def feedback
 	end
 	def newgame
+		if request.env['omniauth.auth'].present?
+			@steamnumber = request.env['omniauth.auth']['uid']
+		end
 		@account = Account.new
 		@user_accounts = current_user.accounts.all
 		render layout: 'sidebar'

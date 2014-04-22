@@ -21,6 +21,8 @@ GamerPVP::Application.routes.draw do
     post 'teams' => 'teams#create', as: :teams
     post 'message' => 'messages#create', as: :messages
     post 'user_statuses' => 'statuses#create', as: :user_statuses
+    post 'auth/steam/callback' => 'accounts#steam'
+    
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

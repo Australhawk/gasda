@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 	def create
-		user = User.first(:conditions => ["lower(username) =?", params[:user][:username].downcase])
+		user = User.find(:first, :conditions => ["lower (username) = lower(?)", params[:user][:username].downcase])
 		if user && user.authenticate(params[:user][:password])
 			session[:user_id] = user.id
 			redirect_to main_path, :alert => I18n.t('sessions.Loggedin')

@@ -22,12 +22,13 @@
 			.small-6.columns.text-center
 				%h4.bolder ENLAZADOS
 				%p1 Aún no has enlazado juegos, comienza ¡ahora!
-
-
+				-current_user.games.uniq.each do |acc|
+					=acc.name
 			.small-6.columns.text-center
 				%h4.bolder EQUIPOS
 				%p1 ¡Agrega algún juego para crear un equipo!
-
+				-current_user.teams.each do |team|
+					=team.name
 		.row
 			.small-12.columns.text-center
 				%h4.bolder JUEGOS DISPONIBLES
@@ -52,13 +53,8 @@
 		.row
 			.columns.large-6
 				%h3.bolder ¡Agrega tu cuenta de DOTA 2!
-				= simple_form_for @account do |f|
-					= f.association :game
-					= f.association :server
-					= f.input :account_number
-					= f.input :username
-					= f.input :extra
-					= f.button :submit
+				%h6 Comienza iniciando sesión con tu cuenta de steam
+				= link_to image_tag('http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_large_noborder.png'), "/auth/steam"
 			.columns.large-6.text-center{:style => "padding-top: 10%"}
 				=image_tag('logo_dota.png')
 				%br
@@ -66,16 +62,17 @@
 				%p1 Los datos de tu cuenta se encuentran bajo un servidor seguro.
 		%a.close-reveal-modal ×
 
+			
 	#addLol.reveal-modal{"data-reveal" => ""}
 		.row
 			.columns.large-6
 				%h3.bolder ¡Agrega tu cuenta de LEAGUE OF LEGENDS!
 				= simple_form_for @account do |f|
-					= f.association :game
-					= f.association :server
-					= f.input :account_number
+					
+					= f.association :server, collection: Server.where(game: Game.find(2))
+					
 					= f.input :username
-					= f.input :extra
+					
 					= f.button :submit
 			.columns.large-6.text-center{:style => "padding-top: 10%"}
 				=image_tag('logo_lol.png')

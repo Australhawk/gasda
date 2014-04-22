@@ -63,6 +63,8 @@ gem 'faye'
 gem 'thin'
 gem 'localeapp'
 gem 'psych'
+
+gem 'omniauth-steam'
 # Use unicorn as the app server
 # gem 'unicorn'
 

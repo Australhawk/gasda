@@ -171,7 +171,7 @@ en:
       submit: Save %{model}
       update: Update %{model}
       account:
-        create: 
+        create: create
   number:
     currency:
       format:
@@ -280,9 +280,9 @@ en:
       Send: Send
       SUGERENCIAS: SUGGESTIONS
     newgame:
-      ENLAZADOS: 
-      EQUIPOS: 
-      GESTIONDEJUEGOS: 
+      ENLAZADOS: LINKED
+      EQUIPOS: TEAMS
+      GESTIONDEJUEGOS: MANAGE GAMES
   activerecord:
     attributes:
       user:
@@ -292,57 +292,42 @@ en:
         password_confirmation: password confirmation
         username: username
       account:
-        account_number: 
-        extra: 
-        game: 
-        server: 
-        username: 
+        account_number: account number
+        extra: extra
+        game: game
+        server: server
+        username: username
+        user: user
       message:
         game: Game
         user: User
       user_status:
-        user: 
+        user: user
+        status: Status
     models:
-<<<<<<< HEAD
-      account: 
-      message: Message
       user: user
-      user_status: 
-=======
-      user: user
-      account: 
+      account: account
       message: Message
-      user_status: 
+      user_status: user_status
   newgame:
-    ENLAZADOS: 
-    EQUIPOS: 
-    GESTIONDEJUEGOS: 
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
+    ENLAZADOS: LINKED
+    EQUIPOS: TEAMS
+    GESTIONDEJUEGOS: MANAGE GAMES
   sessions:
     Invalidemailorpassword: Invalid mail or password
     Loggedin: Logged in succesfully
     Loggedout: Logged out
-<<<<<<< HEAD
   users:
     Registered: Registered succesfully
-=======
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
   simple_form:
     hints:
       account:
         newgame:
-          account_number: 
-<<<<<<< HEAD
-          game: 
-          server: 
-          username: 
-          extra: 
-=======
+          account_number: account number
           extra: 
           game: 
           server: 
           username: 
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
     labels:
       account:
         newgame:
@@ -358,15 +343,6 @@ en:
           extra: 
           username: 
     required:
-      html: 
-      mark: 
-      text: 
-<<<<<<< HEAD
-  newgame:
-    ENLAZADOS: 
-    EQUIPOS: 
-    GESTIONDEJUEGOS: 
-=======
-  users:
-    Registered: Registered succesfully
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
+      html: <abbr title="required">*</abbr>
+      mark: "*"
+      text: required
