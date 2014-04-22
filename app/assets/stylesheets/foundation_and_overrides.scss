@@ -56,8 +56,9 @@ $body-bg: #e5e5e5;
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
+$primary-color: #c02b2b;
+$secondary-color: #008CBA;
+// Tercer color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 $warning-color: #E93838;
@@ -164,8 +165,8 @@ $subheader-top-margin: 1.8rem;
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
+$anchor-font-color: $secondary-color;
+$anchor-font-color-hover: scale-color($secondary-color, $lightness: -14%);
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
@@ -286,7 +287,7 @@ $subheader-top-margin: 1.8rem;
 // $include-html-nav-classes: $include-html-classes;
 
 // We use this to set the background color for the breadcrumb container.
-// $crumb-bg: scale-color($secondary-color, $lightness: 55%);
+$crumb-bg: scale-color(#e7e7e7, $lightness: 55%);
 
 // We use these to set the padding around the breadcrumbs.
 // $crumb-padding: rem-calc(9 14 9);

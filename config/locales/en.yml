@@ -171,7 +171,7 @@ en:
       submit: Save %{model}
       update: Update %{model}
       account:
-        create: create
+        create: 
   number:
     currency:
       format:
@@ -280,9 +280,9 @@ en:
       Send: Send
       SUGERENCIAS: SUGGESTIONS
     newgame:
-      ENLAZADOS: LINKED
-      EQUIPOS: TEAMS
-      GESTIONDEJUEGOS: MANAGE GAMES
+      ENLAZADOS: 
+      EQUIPOS: 
+      GESTIONDEJUEGOS: 
   activerecord:
     attributes:
       user:
@@ -292,32 +292,29 @@ en:
         password_confirmation: password confirmation
         username: username
       account:
-        account_number: account number
-        extra: extra
-        game: game
-        server: server
-        username: username
-        user: user
+        account_number: 
+        extra: 
+        game: 
+        server: 
+        username: 
       message:
         game: Game
         user: User
       user_status:
-        user: user
-        status: Status
+        user: 
     models:
       account: 
       message: Message
       user: user
       user_status: 
-      account: account
+      user: user
+      account: 
       message: Message
-      user_status: user_status
+      user_status: 
   newgame:
+    ENLAZADOS: 
     EQUIPOS: 
-    GESTIONDEJUEGOS: 1
-    ENLAZADOS: LINKED
-    EQUIPOS: TEAMS
-    GESTIONDEJUEGOS: MANAGE GAMES
+    GESTIONDEJUEGOS: 
   sessions:
     Invalidemailorpassword: Invalid mail or password
     Loggedin: Logged in succesfully
@@ -328,11 +325,15 @@ en:
     hints:
       account:
         newgame:
+          account_number: 
           game: 
           server: 
           username: 
           extra: 
-          account_number: account number
+          extra: 
+          game: 
+          server: 
+          username: 
     labels:
       account:
         newgame:
@@ -357,6 +358,3 @@ en:
     GESTIONDEJUEGOS: 
   users:
     Registered: Registered succesfully
-      html: <abbr title="required">*</abbr>
-      mark: "*"
-      text: required
