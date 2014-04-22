@@ -303,12 +303,10 @@ en:
       user_status:
         user: 
     models:
-<<<<<<< HEAD
       account: 
       message: Message
       user: user
       user_status: 
-=======
       user: user
       account: 
       message: Message
@@ -316,33 +314,26 @@ en:
   newgame:
     ENLAZADOS: 
     EQUIPOS: 
-    GESTIONDEJUEGOS: 
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
+    GESTIONDEJUEGOS: 1
   sessions:
     Invalidemailorpassword: Invalid mail or password
     Loggedin: Logged in succesfully
     Loggedout: Logged out
-<<<<<<< HEAD
   users:
     Registered: Registered succesfully
-=======
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
   simple_form:
     hints:
       account:
         newgame:
           account_number: 
-<<<<<<< HEAD
           game: 
           server: 
           username: 
           extra: 
-=======
           extra: 
           game: 
           server: 
           username: 
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
     labels:
       account:
         newgame:
@@ -361,12 +352,9 @@ en:
       html: 
       mark: 
       text: 
-<<<<<<< HEAD
   newgame:
     ENLAZADOS: 
     EQUIPOS: 
     GESTIONDEJUEGOS: 
-=======
   users:
     Registered: Registered succesfully
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601

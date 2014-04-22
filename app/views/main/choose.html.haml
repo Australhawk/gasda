@@ -1,1 +1,22 @@
-%h1 Choose
+-lead t("header.CHOOSEYOURDESTINY")
+.row#main
+	.small-12.columns
+		%ul.breadcrumbs
+			%li.current
+				%a{href: "#"} TORNEOS
+			%li
+				%a{href: "#"} DESAFÍOS
+			%li
+				%a{href: "#"} LIGA
+
+			%dl.sub-nav.text-right
+				%dt Filter:
+				%dd.active
+					%a{href: "#"} All
+				%dd
+					%a{href: "#"} Active
+				%dd
+					%a{href: "#"} Pending
+				%dd
+					%a{href: "#"} Suspended
+		

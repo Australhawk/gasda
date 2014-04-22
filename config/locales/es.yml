@@ -301,38 +301,29 @@ es:
       account: 
       message: 
       user_status: 
-<<<<<<< HEAD
-=======
   newgame:
     ENLAZADOS: 
     EQUIPOS: 
     GESTIONDEJUEGOS: 
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
   sessions:
     Invalidemailorpassword: Correo o contraseña incorrectos
     Loggedin: Has iniciado sesión satisfactoriamente
     Loggedout: Has cerrado sesión
-<<<<<<< HEAD
   users:
     Registered: Registrado con éxito
-=======
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
   simple_form:
     hints:
       account:
         newgame:
           account_number: 
-<<<<<<< HEAD
           game: 
           server: 
           username: 
           extra: 
-=======
           extra: 
           game: 
           server: 
           username: 
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
     labels:
       account:
         newgame:
@@ -350,13 +341,10 @@ es:
     required:
       html: 
       mark: 
-      text: 
-<<<<<<< HEAD
+      text:
   newgame:
     ENLAZADOS: 
     EQUIPOS: 
     GESTIONDEJUEGOS: 
-=======
   users:
     Registered: Registrado con éxito
->>>>>>> 667d18dee603573a78e093a2cdf981b2fb8e9601
