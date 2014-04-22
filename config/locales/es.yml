@@ -165,7 +165,7 @@ es:
       submit: Guardar %{model}
       update: Actualizar %{model}
       account:
-        create: 
+        create: crear
   landing:
     follow_us: SÍGUENOS Y ENTÉRATE
   number:
@@ -274,9 +274,9 @@ es:
       Send: Enviar
       SUGERENCIAS: SUGERENCIAS
     newgame:
-      ENLAZADOS: 
-      EQUIPOS: 
-      GESTIONDEJUEGOS: 
+      ENLAZADOS: ENLAZADOS
+      EQUIPOS: EQUIPOS
+      GESTIONDEJUEGOS: GESTION DE JUEGOS
   activerecord:
     attributes:
       user:
@@ -286,25 +286,27 @@ es:
         password_confirmation: confirmación de contraseña
         username: nombre de usuario
       account:
-        account_number: 
-        extra: 
-        game: 
-        server: 
-        username: 
+        account_number: numero de cuenta
+        extra: extra
+        game: juego
+        server: servidor
+        username: nombre de usuario
+        user: usuario
       message:
-        game: 
-        user: 
+        game: juego
+        user: usuario
       user_status:
-        user: 
+        user: usuario
+        status: 
     models:
       user: usuario
       account: 
       message: 
       user_status: 
-  newgame:
-    ENLAZADOS: 
-    EQUIPOS: 
-    GESTIONDEJUEGOS: 
+  newgame: 
+      account: cuenta
+      message: mensaje
+      user_status: user_status
   sessions:
     Invalidemailorpassword: Correo o contraseña incorrectos
     Loggedin: Has iniciado sesión satisfactoriamente
@@ -315,11 +317,7 @@ es:
     hints:
       account:
         newgame:
-          account_number: 
-          game: 
-          server: 
-          username: 
-          extra: 
+          account_number: numero de cuenta
           extra: 
           game: 
           server: 
@@ -342,9 +340,6 @@ es:
       html: 
       mark: 
       text:
-  newgame:
-    ENLAZADOS: 
-    EQUIPOS: 
-    GESTIONDEJUEGOS: 
   users:
     Registered: Registrado con éxito
+      text: 
