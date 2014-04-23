@@ -201,12 +201,27 @@
 										%tr
 											%th{width: "200"} Nick Invocador
 											%th{width: "200"} Rol
+											%th{width: "200"} Liga
 											%th{width: "75"}
+											-members = team.team_members.order("role_id")
+											-summoners=[]
+											-leagues=[]
+											-members.each do |member|
+												-summoners << member.account.username
+											
+											-ids= LoLAPI::get_summoner_by_name summoners.join(', '), 'las'
+											-ids.each do |id|
+												-data=LoLAPI::get_league("#{id[1]['id']}/entry",'las')[0]
+												-leagues << "#{data['tier']} #{data['rank']}"
+											
 										%tbody
-										-team.team_members.order("role_id").each do |member|
+										-t=0
+										-members.each do |member|
 											%tr
 												%td=member.account.username
 												%td=member.role.name
+												%td=leagues[t]
+												-t=t+1
 												%td.text-center
 													%i.fi-pencil.size-24
 													%i.fi-trash.size-24

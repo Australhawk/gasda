@@ -65,6 +65,7 @@ gem 'localeapp'
 gem 'psych'
 gem 'country_select'
 gem 'omniauth-steam'
+gem 'lolapi'
 # Use unicorn as the app server
 # gem 'unicorn'
 

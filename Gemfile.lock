@@ -102,6 +102,7 @@ GEM
       rack
       rest-client
       ya2yaml
+    lolapi (0.2.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -237,6 +238,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   localeapp
+  lolapi
   omniauth-steam
   pg
   private_pub
