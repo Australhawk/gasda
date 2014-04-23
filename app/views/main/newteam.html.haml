@@ -73,7 +73,10 @@
 								%i.fi-pencil.size-24
 								%i.fi-trash.size-24
 							.small-10.columns
-								%h3.bolder= team.name
+								%h3.bolder
+									=team.name
+									%span.round.label{:class => "#{acc_status team.status}"}
+										= team.status
 								%h6= "ID: ##{team.id}" 
 								%h6 REPUTACIÓN: 0
 								%h6 LIGA: 0
@@ -182,7 +185,10 @@
 								%i.fi-pencil.size-24
 								%i.fi-trash.size-24
 							.small-10.columns
-								%h3.bolder= team.name
+								%h3.bolder
+									=team.name
+									%span.round.label{:class => "#{acc_status team.status}"}
+										= team.status
 								%h6= "ID: ##{team.id}" 
 								%h6 REPUTACIÓN: 0
 								%h6 LIGA: 0

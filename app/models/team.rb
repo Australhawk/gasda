@@ -10,4 +10,9 @@ class Team < ActiveRecord::Base
   validates_uniqueness_of :tag, :scope => :game, :case_sensitive => false
   validates_associated :game, :accounts, :team_members
   accepts_nested_attributes_for :team_members, allow_destroy: true
+  state_machine :status, :initial => :pending do
+    event :verify do
+      transition :pending => :verified
+    end
+  end
 end
