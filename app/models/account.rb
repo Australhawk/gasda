@@ -5,7 +5,7 @@ class Account < ActiveRecord::Base
   has_one :team_member
   has_one :team, :through => :team_member
   validates_presence_of :game, :user, :username, :server
-  validates_uniqueness_of :user, :scope => :game
+  validates_uniqueness_of :user, :scope => [:game,:server]
   state_machine :status, :initial => :pending do
   	event :verify do
   		transition :pending => :verified

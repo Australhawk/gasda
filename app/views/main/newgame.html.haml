@@ -29,12 +29,14 @@
 							%tr
 								%th{width: "200"} Juego
 								%th{width: "150"} Username
+								%th{width: "150"} Servidor
 								%th{width: "150"} Estado
 							%tbody
-							-current_user.accounts.each do |acc|
+							-current_user.accounts.order("game_id").each do |acc|
 								%tr
 									%td= acc.game.name
 									%td= acc.username
+									%td= acc.server.name
 									%td
 										%span.round.label{:class => "#{acc_status acc.status}"}
 											= acc.status
