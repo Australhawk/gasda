@@ -33,13 +33,13 @@
             %section.top-bar-section
               %ul.left
                 %li
-                  =link_to t("header.NOTIFICACIONES")
+                  =link_to "#{t("header.NOTIFICACIONES")}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0".html_safe, notifications_path(@notifications, anchor: "main")
                 %li
                   %a{"data-dropdown" => "drop-juegos", "data-options" => "align:right", href: "#"} 
                     =t("header.MIS JUEGOS")
                   %ul#drop-juegos.medium.f-dropdown{"data-dropdown-content" => ""}
                     %li
-                      =link_to t('header.masAgregar'), newgame_path
+                      =link_to t('header.masAgregar'), newgame_path(@newgame, anchor: "main")
                     -unless @user_games.nil?
                       -@user_games.uniq.each do |game|
                         %li
@@ -49,13 +49,13 @@
                     =t("header.MISEQUIPOS")
                   %ul#drop-equipos.medium.f-dropdown{"data-dropdown-content" => ""}
                     %li
-                      =link_to t('header.masCrearEquipo'), newteam_path
+                      =link_to t('header.masCrearEquipo'), newteam_path(@newteam, anchor: "main")
                     -unless @user_teams.nil?
                       -@user_teams.each do |team|
                         %li
                           =link_to team.game.name+" - "+team.name
                 %li
-                  =link_to t("header.REPORTES")
+                  =link_to "#{t("header.REPORTES")}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0".html_safe, report_path(@report, anchor: "main")
         .columns.small-9
           = yield
     =render "layouts/footer"

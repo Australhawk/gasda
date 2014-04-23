@@ -1,7 +1,7 @@
 class MainController < ApplicationController
 	#Todas la paginas que necesitan que el usuario este registrado
 	before_filter :authenticate
-	before_filter :sidebar, :only => [:index,:newteam,:newgame]
+	before_filter :sidebar, :only => [:index,:newteam,:newgame,:notifications,:report]
 	def index
 		@messages = Message.all
     @eventos = Tournament.where(['start > ?', DateTime.now])
@@ -11,6 +11,12 @@ class MainController < ApplicationController
 	def choose
 	end
 	def halloffame
+	end
+	def notifications
+		render layout: 'sidebar'
+	end
+	def report
+		render layout: 'sidebar'
 	end
 	def ticket
 	end

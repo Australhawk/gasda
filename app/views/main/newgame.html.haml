@@ -1,5 +1,5 @@
 -lead t("command.index.COMMANDCENTER")
-.row#main
+.row#main-newgame
 	=form_for current_user, url: destroy_session_path, method: 'post' do |f|
 		%h3.bolder
 			=current_user.username
@@ -25,29 +25,63 @@
 					%p1 Aún no has enlazado juegos, comienza ¡ahora!
 				-else
 					%table
-						%thead
+						-current_user.accounts.order("game_id").each do |acc|
 							%tr
-								%th{width: "200"} Juego
-								%th{width: "150"} Username
-								%th{width: "150"} Servidor
-								%th{width: "150"} Estado
-							%tbody
-							-current_user.accounts.order("game_id").each do |acc|
-								%tr
-									%td= acc.game.name
-									%td= acc.username
-									%td= acc.server.name
-									%td
-										%span.round.label{:class => "#{acc_status acc.status}"}
-											= acc.status
+								%td{rowspan: "4", width: "40%"}
+									= image_tag (acc.game.image)
+								%td.bolder= acc.game.name
+							%tr
+								%td
+									Id: 
+									= acc.username
+							%tr
+								%td
+									Servidor:
+									= acc.server.name
+							%tr
+								%td Liga: XXX
+							%tr
+								%td.text-center
+									%i.fi-pencil.size-24
+									%i.fi-trash.size-24
+								%td
+									Estado:
+									%span.label{:class => "#{acc_status acc.status}"}
+										= acc.status
 
 			.small-6.columns.text-center
 				%h4.bolder EQUIPOS
 				-if 	current_user.accounts.none?
 					%p1 ¡Agrega algún juego para crear un equipo!
 				-elsif current_user.teams.any?
-					-current_user.teams.each do |team|
-						=team.name
+					%table
+						-current_user.teams.each do |team|
+							%tr
+								%td{rowspan: "4", width: "40%"}
+									= image_tag (team.image)
+								%td.bolder= team.name
+							%tr
+								%td
+									Id: XXX
+							%tr
+								%td
+									Servidor: XXX
+
+							%tr
+								%td
+									Ranking PvP: XXX
+							%tr
+								%td.text-center
+									%i.fi-pencil.size-24
+									%i.fi-trash.size-24
+								%td
+									Reputación: 0
+									%i.fi-like.size-16
+									0
+									%i.fi-dislike.size-16
+							%tr
+								%td
+									Liga: XXX
 				-else
 					%p1 ¡Que esperas para crear un equipo!
 		.row

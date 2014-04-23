@@ -10,6 +10,8 @@ GamerPVP::Application.routes.draw do
     get 'halloffame' => 'main#halloffame', as: :halloffame
     get 'main/newgame' => 'main#newgame', as: :newgame
     get 'main/newteam' => 'main#newteam', as: :newteam
+    get 'main/notifications' => 'main#notifications', as: :notifications
+    get 'main/report' => 'main#report', as: :report
     get 'ticket' => 'main#ticket', as: :ticket
     get 'bank' => 'main#bank', as: :bank
     get 'profile' => 'users#profile', as: :profile

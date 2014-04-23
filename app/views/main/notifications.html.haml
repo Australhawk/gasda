@@ -1,0 +1,33 @@
+-lead t("command.index.COMMANDCENTER")
+.row#main-notifications
+	=form_for current_user, url: destroy_session_path, method: 'post' do |f|
+		%h3.bolder
+			=current_user.username
+		-if current_user.user_statuses.last.present?
+			\"
+			=current_user.user_statuses.last.status
+			\"
+	=form_for @status,  method: 'post' do |f|
+		=f.text_area :status, :placeholder => "What's going on Biiiaaaattchhhh??!!"
+		=f.submit 'Actualizar'
+
+	.column.small-12.text-right.main-section
+		.row.main-section-header
+			%h2 NOTIFICACIONES
+			%i.fi-widget.size-48.ficolor
+		%hr.style-one.row{:style => "margin-bottom: 5%"}
+
+		.row{:style => "margin-bottom: 8%"}
+			%p1 No tienes notificaciones pendientes por revisar.
+
+			%br
+			%br
+			%br
+			%i.fi-megaphone.size-24{:style => "display: -webkit-inline-box"}
+				%p.bolder{:style => "margin-left: 1em"} Notificacion nueva recibida en dd/mm/año
+
+			%br
+			%br
+			%br
+			%i.fi-megaphone.size-16{:style => "display: -webkit-inline-box"}
+				%p1{:style => "margin-left: 1em"} Notificacion leida recibida en dd/mm/año

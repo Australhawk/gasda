@@ -1,0 +1,70 @@
+-lead t("command.index.COMMANDCENTER")
+.row#main-report
+	=form_for current_user, url: destroy_session_path, method: 'post' do |f|
+		%h3.bolder
+			=current_user.username
+		-if current_user.user_statuses.last.present?
+			\"
+			=current_user.user_statuses.last.status
+			\"
+	=form_for @status,  method: 'post' do |f|
+		=f.text_area :status, :placeholder => "What's going on Biiiaaaattchhhh??!!"
+		=f.submit 'Actualizar'
+
+	.column.small-12.text-right.main-section
+		.row.main-section-header
+			%h2 REPORTES
+			%i.fi-widget.size-48.ficolor
+		%hr.style-one.row{:style => "margin-bottom: 5%"}
+
+
+		%table
+			%tr
+				%td.text-center{rowspan: "3", width: "20%"}
+					%i.fi-photo.size-large
+					%br
+					.label PENDIENTE
+
+				%td.bolder Juego
+				%td.bolder Torneo
+				%td.bolder Id
+				%td.bolder Inicio
+				%td.bolder Ganador
+				%td.bolder Acción
+			%tr
+				%td League of Legends
+				%td LoL AUSTRAL OPEN
+				%td 765
+				%td 
+					22/03/14
+					%br
+					22hrs CLT
+				%td Jugador 1
+				%td 
+					%a.button REPORTAR
+			%tr
+				%td.text-center{colspan: "6"} Adjuntar Archivo: SELECCIONAR
+
+
+			-# %table
+			-# 	%tr
+			-# 		%td{rowspan: "4", width: "40%"}
+			-# 			= image_tag ()
+			-# 		%td.bolder
+			-# 	%tr
+			-# 		%td
+			-# 			Id: 
+
+			-# 	%tr
+			-# 		%td
+			-# 			Servidor:
+
+			-# 	%tr
+			-# 		%td Liga: XXX
+			-# 	%tr
+			-# 		%td.text-center
+			-# 			%i.fi-pencil.size-24
+			-# 			%i.fi-trash.size-24
+			-# 		%td
+			-# 			Estado:
+			-# 			%span.label PENDIENTE

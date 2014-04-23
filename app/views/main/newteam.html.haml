@@ -18,6 +18,9 @@
 
 		%hr.style-one.row{:style => "margin-bottom: 5%"}
 
+		%p1 Debes enlanzar la cuenta de tu videojuego para comenzar a crear equipos.
+		=link_to '¡Enlaza tu cuenta ahora!', newgame_path(@newgame, anchor: "main")
+		
 		%dl.tabs{"data-tab" => ""}
 			%dd.active
 				%a{href: "#panel2-1"} 
