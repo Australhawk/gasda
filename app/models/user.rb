@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
 	validates_acceptance_of :terms
 	validates :username, exclusion: {in: %w(admin gpvp gamerpvp guest temp www administrador manager staff)}, length: { minimum: 4 }, format: { with: /\A[a-zA-Z0-9]+\z/,
     message: "only allows letters" }
-	validates :password, length: { minimum: 6 }
+	
 	has_secure_password
 	has_many :user_statuses
   has_many :accounts
   has_many :team_members
-  has_many :teams, :through => :team_members
+  has_many :teams, :through => :accounts
 	has_many :messages
 	has_many :tournaments, :through => :teams
 	has_many :games, :through => :accounts

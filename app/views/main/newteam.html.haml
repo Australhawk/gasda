@@ -29,121 +29,80 @@
 		.tabs-content
 			#panel2-1.content.active
 				.row.text-left{:style => "padding-left: 2%"}
-					-# NO ha creado equipo
-					%p1 Crea tu primer equipo para Dota 2
-					%p1
-						=link_to 'AQUI','#', "data-reveal-id" => "addEquipoDota"
-					#addEquipoDota.reveal-modal{"data-reveal" => ""}
-						.row
-							.columns.large-6
-								%h3.bolder ¡Crea tu equipo!
-								%form
-									%fieldset
-										%legend Información del equipo
-										%label
-											Nombre
-											%input{placeholder: "", type: "text"}/
-										%label
-											TAG
-											%input{placeholder: "", type: "text"}/
-										%label
-											Servidor
-											%input{placeholder: "", type: "text"}/
-										%label
-											ID
-											%input{placeholder: "", type: "text"}/
-										%label
-											Avatar (150x150 pixeles máximo)
+					-if current_user.teams.where(game: Game.find(1)).none?
+						%p1 Crea tu primer equipo para Dota 2
+						%p1
+							=link_to 'AQUI','#', "data-reveal-id" => "addEquipoDota"
+						#addEquipoDota.reveal-modal{"data-reveal" => ""}
+							.row
+								= simple_form_for @team do |f|
+									.columns.large-6
+										%h3.bolder ¡Crea tu equipo!
+										%fieldset
+											%legend Información del equipo
+											= f.association :game, collection: current_user.games.where(name: Game.find(1).name), include_blank: false
+											= f.input :name
+											= f.input :description
+											= f.input :tag
+										%fieldset
+											%legend Selecciona la cuenta asociada al equipo
+											.row
+											= f.simple_fields_for :team_member do |p|
+												.columns.large-9
+													=p.input :account, collection: current_user.accounts.where(game: Game.find(1)), label_method: :username, value_method: :id, include_blank: false
+												.columns.large-3
+													=p.input :role, collection: Role.all, include_blank: false, disabled: true
+									
+									.columns.large-6.text-center{:style => "padding-top: 10%"}
+										=image_tag('logo_dota.png')
+										%br
+										%i.fi-info.size-24
+										%p1 Los datos de tu cuenta se encuentran bajo un servidor seguro.
+										%br
+										%br
+										= f.button :submit, "CREAR EQUIPO Y ENVIAR INVITACIONES"
 
-									%fieldset
-										%legend Integrantes
-										%label
-											Ingresa sus correos electrónicos y se les enviará una invitación
-											%input{placeholder: "Ejemplo: usuario1@mail.com, usuario2@mail.com", type: "text"}/
+							%a.close-reveal-modal ×
 
+					-if current_user.teams.where(game: Game.find(1)).any?
+						-current_user.teams.where(game: Game.find(1)).each do |team|
+							%br
+							%hr.styled
+							.small-2.columns.text-center
+								%i.fi-torsos-all.size-large
+								%i.fi-pencil.size-24
+								%i.fi-trash.size-24
+							.small-10.columns
+								%h3.bolder= team.name
+								%h6= "ID: ##{team.id}" 
+								%h6 REPUTACIÓN: 0
+								%h6 LIGA: 0
+								%h6 GAMERPVP RANK: 0
 
-							.columns.large-6.text-center{:style => "padding-top: 10%"}
-								=image_tag('logo_dota.png')
 								%br
-								%i.fi-info.size-24
-								%p1 Los datos de tu cuenta se encuentran bajo un servidor seguro.
-								%br
-								%br
-								%a.button
-									CREAR EQUIPO Y ENVIAR INVITACIONES
-						%a.close-reveal-modal ×
-
-					-# SI ha creado equipo
-					%br
-					%hr.styled
-					.small-2.columns.text-center
-						%i.fi-torsos-all.size-large
-						%i.fi-pencil.size-24
-						%i.fi-trash.size-24
-					.small-10.columns
-						%h3.bolder Nombre del team
-						%h6 ID: #12345
-						%h6 REPUTACIÓN: #12345
-						%h6 LIGA: #12345
-						%h6 GAMERPVP RANK: #12345
-
-						%br
-						%h5.bolder INTEGRANTES
-						%table
-							%thead
-								%tr
-									%th{width: "200"} Nick GamerPvP
-									%th{width: "150"} Nombre Invocador
-									%th{width: "150"} Liga
-									%th{width: "75"} Carril
-									%th{width: "75"}
-								%tbody
-								%tr
-									%td 
-										%a Austral
-									%td
-										%a AustralNOOB
-									%td Bronce V
-									%td Support
-									%td.text-center
-										%i.fi-pencil.size-24
-										%i.fi-trash.size-24
-								%tr
-									%td 
-										%a Cocopacheco
-									%td
-										%a Coquitox
-									%td Bronce IV
-									%td Top
-									%td.text-center
-										%i.fi-pencil.size-24
-										%i.fi-trash.size-24
-								%tr
-									%td 
-										%a Anovatao
-									%td
-										%a Anovataditox
-									%td Bronce IV
-									%td ADC
-									%td.text-center
-										%i.fi-pencil.size-24
-										%i.fi-trash.size-24
-								%tr
-									%td 
-										=link_to '+ Agregar','#', "data-reveal-id" => "addTeamMember"
-									%td
-										%a 
-									%td 
-									%td
-									%td
-								%tr
-									%td 
-										=link_to '+ Agregar','#', "data-reveal-id" => "addTeamMember"
-									%td
-										%a 
-									%td 
-									%td 
-									%td
+								%h5.bolder INTEGRANTES
+								%table
+									%thead
+										%tr
+											%th{width: "200"} Nick Steam
+											%th{width: "200"} Rol
+											%th{width: "75"}
+										%tbody
+										-team.team_members.order("role_id").each do |member|
+											%tr
+												%td=member.account.username
+												%td=member.role.name
+												%td.text-center
+													%i.fi-pencil.size-24
+													%i.fi-trash.size-24
+										%tr
+											%td 
+												=link_to '+ Agregar','#', "data-reveal-id" => "addTeamMember"
+											%td
+												%a 
+											%td 
+											
+										
 
 					#addTeamMember.reveal-modal{"data-reveal" => ""}
 						.row
@@ -180,10 +139,78 @@
 
 			#panel2-2.content
 				.row.text-left{:style => "padding-left: 2%"}
-					-# NO ha creado equipo
-					%p1 Crea tu primer equipo para League of Legends
+					-if current_user.teams.where(game: Game.find(2)).none?
+						%p1 Crea tu primer equipo para League of Legends
+						%p1
+							=link_to 'AQUI','#', "data-reveal-id" => "addEquipoLol"
+							#addEquipoLol.reveal-modal{"data-reveal" => ""}
+								.row
+									= simple_form_for @team do |f|
+										.columns.large-6
+											%h3.bolder ¡Crea tu equipo!
+											%fieldset
+												%legend Información del equipo
+												= f.association :game, collection: current_user.games.where(name: Game.find(2).name), include_blank: false
+												= f.input :name
+												= f.input :description
+												= f.input :tag
+											%fieldset
+												%legend Selecciona la cuenta asociada al equipo
+												.row
+												= f.simple_fields_for :team_member do |p|
+													.columns.large-9
+														=p.input :account, collection: current_user.accounts.where(game: Game.find(2)), label_method: :username, value_method: :id, include_blank: false
+													.columns.large-3
+														=p.input :role, collection: Role.all, include_blank: false, disabled: true
+										
+										.columns.large-6.text-center{:style => "padding-top: 10%"}
+											=image_tag('logo_lol.png')
+											%br
+											%i.fi-info.size-24
+											%p1 Los datos de tu cuenta se encuentran bajo un servidor seguro.
+											%br
+											%br
+											= f.button :submit, "CREAR EQUIPO Y ENVIAR INVITACIONES"
 
-					-# SI ha creado equipo
+								%a.close-reveal-modal ×
+					-if current_user.teams.where(game: Game.find(2)).any?
+						-current_user.teams.where(game: Game.find(2)).each do |team|
+							%br
+							%hr.styled
+							.small-2.columns.text-center
+								%i.fi-torsos-all.size-large
+								%i.fi-pencil.size-24
+								%i.fi-trash.size-24
+							.small-10.columns
+								%h3.bolder= team.name
+								%h6= "ID: ##{team.id}" 
+								%h6 REPUTACIÓN: 0
+								%h6 LIGA: 0
+								%h6 GAMERPVP RANK: 0
+
+								%br
+								%h5.bolder INTEGRANTES
+								%table
+									%thead
+										%tr
+											%th{width: "200"} Nick Invocador
+											%th{width: "200"} Rol
+											%th{width: "75"}
+										%tbody
+										-team.team_members.order("role_id").each do |member|
+											%tr
+												%td=member.account.username
+												%td=member.role.name
+												%td.text-center
+													%i.fi-pencil.size-24
+													%i.fi-trash.size-24
+										%tr
+											%td 
+												=link_to '+ Agregar','#', "data-reveal-id" => "addTeamMember"
+											%td
+												%a 
+											%td 
+											
 
 
 

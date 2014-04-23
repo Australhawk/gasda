@@ -13,4 +13,11 @@ module ApplicationHelper
 	def lead(page_lead)
 	  content_for(:lead) { page_lead }
 	end
+	def acc_status(status)
+		if status == "verified"
+			"success"
+		else
+			"alert"
+		end
+	end
 end

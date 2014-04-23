@@ -39,7 +39,7 @@
                     =t("header.MIS JUEGOS")
                   %ul#drop-juegos.medium.f-dropdown{"data-dropdown-content" => ""}
                     %li
-                      =link_to t('header.masAgregar'), newgame_path(@newgame, anchor: "main")
+                      =link_to t('header.masAgregar'), newgame_path
                     -unless @user_games.nil?
                       -@user_games.uniq.each do |game|
                         %li
@@ -49,7 +49,7 @@
                     =t("header.MISEQUIPOS")
                   %ul#drop-equipos.medium.f-dropdown{"data-dropdown-content" => ""}
                     %li
-                      =link_to t('header.masCrearEquipo'), newteam_path(@newteam, anchor: "main")
+                      =link_to t('header.masCrearEquipo'), newteam_path
                     -unless @user_teams.nil?
                       -@user_teams.each do |team|
                         %li

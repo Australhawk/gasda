@@ -21,14 +21,33 @@
 		.row{:style => "margin-bottom: 8%"}
 			.small-6.columns.text-center
 				%h4.bolder ENLAZADOS
-				%p1 Aún no has enlazado juegos, comienza ¡ahora!
-				-current_user.games.uniq.each do |acc|
-					=acc.name
+				-if 	current_user.accounts.none?
+					%p1 Aún no has enlazado juegos, comienza ¡ahora!
+				-else
+					%table
+						%thead
+							%tr
+								%th{width: "200"} Juego
+								%th{width: "150"} Username
+								%th{width: "150"} Estado
+							%tbody
+							-current_user.accounts.each do |acc|
+								%tr
+									%td= acc.game.name
+									%td= acc.username
+									%td
+										%span.round.label{:class => "#{acc_status acc.status}"}
+											= acc.status
+
 			.small-6.columns.text-center
 				%h4.bolder EQUIPOS
-				%p1 ¡Agrega algún juego para crear un equipo!
-				-current_user.teams.each do |team|
-					=team.name
+				-if 	current_user.accounts.none?
+					%p1 ¡Agrega algún juego para crear un equipo!
+				-elsif current_user.teams.any?
+					-current_user.teams.each do |team|
+						=team.name
+				-else
+					%p1 ¡Que esperas para crear un equipo!
 		.row
 			.small-12.columns.text-center
 				%h4.bolder JUEGOS DISPONIBLES

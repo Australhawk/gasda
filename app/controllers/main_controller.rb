@@ -34,6 +34,7 @@ class MainController < ApplicationController
 	end
 	def newteam
 		@team = Team.new
+		
 		@user_teams = current_user.teams.all
 		render layout: 'sidebar'
 	end
