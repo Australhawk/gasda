@@ -19,5 +19,16 @@ module GamerPVP
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.default_locale = :en
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: "smtp.mandrillapp.com",
+      port: 587,
+      authentication: "plain",
+      user_name: "app24999491@heroku.com",
+      password: ENV['SMTP_PASSWORD'],
+      enable_starttls_auto: false
+    }
+    config.action_mailer.raise_delivery_errors = true
+
   end
 end

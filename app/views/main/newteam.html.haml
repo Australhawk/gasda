@@ -212,10 +212,12 @@
 											-members.each do |member|
 												-summoners << member.account.username
 											
-											-ids= LoLAPI::get_summoner_by_name summoners.join(', '), 'las'
-											-ids.each do |id|
-												-data=LoLAPI::get_league("#{id[1]['id']}/entry",'las')[0]
-												-leagues << "#{data['tier']} #{data['rank']}"
+											-ids= LoLAPI::get_summoner_by_name summoners.join(', '), 'las' rescue ids=''
+											-if ids!=''
+												-ids.each do |id|
+													-data=LoLAPI::get_league("#{id[1]['id']}/entry",'las')[0]
+													-leagues << "#{data['tier']} #{data['rank']}"
+
 											
 										%tbody
 										-t=0

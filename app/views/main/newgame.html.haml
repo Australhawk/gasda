@@ -28,7 +28,7 @@
 						-current_user.accounts.order("game_id").each do |acc|
 							%tr
 								%td{rowspan: "4", width: "40%"}
-									= image_tag (acc.game.image)
+									=# image_tag (acc.game.image)
 								%td.bolder= acc.game.name
 							%tr
 								%td
@@ -58,7 +58,7 @@
 						-current_user.teams.each do |team|
 							%tr
 								%td{rowspan: "4", width: "40%"}
-									= image_tag (team.image)
+									=# image_tag (team.image)
 								%td.bolder= team.name
 							%tr
 								%td
